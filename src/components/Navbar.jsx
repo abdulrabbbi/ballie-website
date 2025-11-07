@@ -13,7 +13,6 @@ const Navbar = () => {
     { name: t("nav.footballMap"), path: "/football-map" },
     { name: t("nav.blogsNews"), path: "/blogs-news" },
   ];
-  // Desktop shows tabs for Home and Business; keep other links separate
   const navSecondary = navItems.filter(
     (i) => i.path !== "/" && i.path !== "/business-benefits"
   );
@@ -32,7 +31,6 @@ const Navbar = () => {
         const y = window.scrollY;
         setScrolled(y > 10);
         const goingDown = y > lastY.current;
-        // only toggle if delta is significant to avoid jitter
         if (Math.abs(y - lastY.current) > 6) {
           setHiddenOnScroll(goingDown && y > 64);
           lastY.current = y;
@@ -48,15 +46,33 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when drawer is open on mobile
+  // Lock body scroll when drawer is open on mobile/tablet (prevents layout shift)
   useEffect(() => {
-    if (open) {
-      const original = document.body.style.overflow;
-      document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.overflow = original;
-      };
+    if (!open) return;
+    const prevOverflow = document.body.style.overflow;
+    const prevPaddingRight = document.body.style.paddingRight;
+    const scrollbarWidth =
+      window.innerWidth - document.documentElement.clientWidth;
+
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) {
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
+
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      document.body.style.paddingRight = prevPaddingRight;
+    };
+  }, [open]);
+
+  // Close on ESC
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
   return (
@@ -65,13 +81,14 @@ const Navbar = () => {
         hiddenOnScroll
           ? "-translate-y-full opacity-0"
           : "translate-y-0 opacity-100"
-      } ${
-        scrolled ? "backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]" : ""
-      }`}
+      } ${scrolled ? "backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]" : ""}`}
       role="navigation"
       aria-label="Main"
     >
-      <div className="bg-[#231f20]/90">
+      <div
+        className="bg-[#231f20]/90"
+        style={{ paddingTop: "env(safe-area-inset-top)" }}
+      >
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 flex items-center justify-between rounded-xl py-3">
           <Link
             to="/"
@@ -85,11 +102,10 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop nav + tabs + download (hidden on small screens) */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
+          {/* Desktop/Laptop nav (visible from lg and up to keep iPad using drawer) */}
+          <div className="hidden lg:flex lg:items-center lg:space-x-6">
             {/* Tabs: Ballie for You / Ballie for Business */}
-            <div className="hidden md:flex items-center bg-white/5 rounded-full p-1">
-              {" "}
+            <div className="hidden lg:flex items-center bg-white/5 rounded-full p-1">
               <NavLink
                 to="/"
                 end
@@ -101,9 +117,8 @@ const Navbar = () => {
                   }`
                 }
               >
-                {" "}
-                Ballie for You{" "}
-              </NavLink>{" "}
+                Ballie for You
+              </NavLink>
               <NavLink
                 to="/business-benefits"
                 className={({ isActive }) =>
@@ -114,10 +129,10 @@ const Navbar = () => {
                   }`
                 }
               >
-                {" "}
-                Ballie for Business{" "}
-              </NavLink>{" "}
+                Ballie for Business
+              </NavLink>
             </div>
+
             {navSecondary.map((item) => (
               <NavLink
                 key={item.path}
@@ -144,21 +159,21 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile menu button */}
+          {/* Mobile/Tablet menu button (visible < lg so iPad uses drawer) */}
           <button
             type="button"
             aria-label="Toggle menu"
             aria-controls="mobile-menu"
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
-            className="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
           >
             <span className="sr-only">Open main menu</span>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Mobile side menu (drawer) */}
+        {/* Mobile/Tablet side menu (drawer) */}
         {open &&
           createPortal(
             <div
@@ -166,14 +181,16 @@ const Navbar = () => {
               aria-modal="true"
               role="dialog"
               aria-label="Main Menu"
+              id="mobile-menu"
             >
               {/* Backdrop */}
               <div
-                className="fixed inset-0 bg-black opacity-100 transition-opacity"
+                className="fixed inset-0 bg-black/70 transition-opacity"
                 onClick={() => setOpen(false)}
+                aria-hidden="true"
               />
               {/* Drawer */}
-              <aside className="absolute right-0 top-0 h-full w-80 max-w-[85%] bg-[#1f1f1f] text-white shadow-2xl transform transition-transform duration-300 ease-out translate-x-0 overflow-y-auto z-[1002]">
+              <aside className="absolute right-0 top-0 h-full w-80 max-w-[88%] bg-[#1f1f1f] text-white shadow-2xl transform transition-transform duration-300 ease-out translate-x-0 overflow-y-auto z-[1002]">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
                   <span className="font-semibold">Menu</span>
                   <button
