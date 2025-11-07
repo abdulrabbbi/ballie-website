@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand accent to exactly match the provided green */
+  --color-accent: #A3FF00;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+/* Global smooth scrolling for anchor/link navigation */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fadeIn {
+  animation: fadeIn 280ms ease-out;
+}
