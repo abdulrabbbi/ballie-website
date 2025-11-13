@@ -1,0 +1,117 @@
+{
+  "nav": {
+    "coins": "Ballie Coins",
+    "home": "Home",
+    "businessBenefits": "Business Benefits",
+    "footballMap": "Football Map",
+    "blogsNews": "Blogs & News",
+    "download": "Download App",
+    "language": "Language",
+    "ballieForYou": "Ballie for You",
+    "ballieForBusiness": "Ballie for Business",
+    "menu": "Menu",
+    "openMainMenu": "Open main menu",
+    "closeMenu": "Close menu",
+    "ballieMaps": "Ballie Maps",
+    "aboutConcept": "About the Concept",
+    "blogNews": "Blog & News"
+  },
+  "cta": {
+    "downloadApp": "Download the Ballie Live App",
+    "learnMore": "Learn More"
+  },
+  "hero": {
+    "home": {
+      "badge": "Ballie for You",
+      "title": "Where football brings people together",
+      "desc": "Born from a passion for the beautiful game, Ballie Live is the platform for everyone who doesn’t just want to watch football — but truly experience it. Whether you’re at home, in the pub with friends, or on the go, Ballie Live brings fans, clubs, and venues together in one app. Easily find where your favourite club is playing live, follow matches in real time, and discover places where football lives. Ballie Live connects people through their love of the game and brings the energy of the pitch straight to your screen — anytime, anywhere.",
+      "stats": {
+        "venues": "Venues & pubs",
+        "liveMatches": "Live matches tracked",
+        "clubs": "Clubs followed",
+        "cities": "Cities covered"
+      }
+    },
+    "map": {
+      "badge": "FootballMaps",
+      "title": "FootballMaps – Find where football lives",
+      "desc": "With FootballMaps from Ballie Live, you always know where the match is on. Discover cafés, bars, and sports venues near you that show live football — from local derbies to international clashes. See which matches are playing, read reviews, check the atmosphere, and choose the spot where you want to watch. Whether you’re cheering with friends in a packed pub or watching quietly at the bar — FootballMaps shows you the way. Are you a bar, café, or venue owner? Sign up for free with Ballie Live For Business and let fans find your location through FootballMaps. Turn every match into a full house. Ballie Live connects fans, places, and football — all in one app."
+    }
+  },
+  "map": {
+    "card": {
+      "blurb": "Find nearby cafés, bars, and venues showing live football. See what’s playing, check reviews and atmosphere, and choose your perfect spot to watch with FootballMaps by Ballie Live.",
+      "matchScreening": "Match Screening"
+    }
+  },
+  "business": {
+    "heading": "Ballie For Business – Where football fills your venue",
+    "desc": "Where the passion for football begins, Ballie Live brings people together — at your place. With a free Ballie Live Business account, your café, bar, or sports venue becomes visible to thousands of football fans looking for the perfect spot to celebrate the game together. Show which matches you’re broadcasting — Ballie Live takes care of the rest. Every match night becomes a full house. Ballie Live connects your venue with the emotion and energy of football.",
+    "benefits": [
+      { "title": "Be seen by football fans", "desc": "Make your venue visible to thousands of supporters searching for the perfect place to watch together." },
+      { "title": "Publish your live matches", "desc": "Easily show which games you’re broadcasting so fans can find you fast." },
+      { "title": "Turn match nights into full houses", "desc": "Bring the energy of the game into your venue and boost footfall." }
+    ]
+  },
+  "follow": {
+    "heading1": "Ballie For Business",
+    "heading2": "Where football fills your venue",
+    "desc": "With a free Ballie Live Business account, your café, bar, or sports venue becomes visible to football fans nearby. Show the matches you’re broadcasting and let Ballie Live bring the crowd."
+  },
+  "appPromo": {
+    "heading": "Download the Ballie Live App",
+    "desc": "Manage your Ballie Live Business profile, publish live matches, and reach fans when it matters most. Connect your venue with the emotion and energy of football.",
+    "downloadNow": "Download app now"
+  },
+  "coins": {
+    "title": "Ballie Coins – Earn. Personalise. Experience.",
+    "intro": "With Ballie Live Coins, you get more out of your football experience. Earn them by being active in the app — check in at matches, explore new locations, or share your passion with other fans.",
+    "closing": "Ballie Live becomes your playground — where football never stops.",
+    "features": {
+      "personalise": { "title": "Personalise your app", "desc": "Unlock exclusive themes of your favourite club or player." },
+      "discounts": { "title": "Save on football gear", "desc": "Get discounts on shirts, accessories, and more." },
+      "game": { "title": "Power up the Ballie Game", "desc": "Purchase updates and extras in the upcoming Ballie Live Game." }
+    }
+  },
+  "userBenefits": {
+    "heading": "Football is more than a game.",
+    "intro": "It’s a feeling. And that feeling lives at Ballie Live.",
+    "items": [
+      { "title": "Real‑time match updates", "desc": "Follow matches in real time and never miss a moment." },
+      { "title": "Connect fans, clubs & venues", "desc": "Ballie Live brings fans, clubs, and venues together in one app." },
+      { "title": "Discover football venues", "desc": "Find pubs and places where football lives near you." },
+      { "title": "Find your club live", "desc": "Easily see where your favourite club is playing live." }
+    ]
+  }
+  ,
+  "footer": {
+    "advertise": {
+      "title": "Advertise with us",
+      "desc": "Reach engaged football fans. Leave your email and we’ll contact you with sponsorship and advertising options."
+    },
+    "form": {
+      "emailLabel": "Business email",
+      "emailPlaceholder": "Enter your business email",
+      "submit": "Get Started"
+    },
+    "menu": {
+      "home": "HOME",
+      "advertise": "ADVERTISE",
+      "cases": "CASES",
+      "careers": "CAREERS",
+      "app": "APP"
+    },
+    "download": {
+      "title": "Download the app",
+      "on": "Download on the",
+      "appStore": "App Store",
+      "getItOn": "GET IT ON",
+      "googlePlay": "Google Play"
+    },
+    "rights": "© {{year}} BALLIE. All rights reserved",
+    "legal": {
+      "terms": "Terms & Conditions",
+      "blog": "Blog"
+    }
+  }
+}

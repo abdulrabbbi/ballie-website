@@ -4,7 +4,8 @@ import RouteFallback from "../components/RouteFallback";
 import RouteErrorBoundary from "../components/RouteErrorBoundary";
 
 // Route-level code splitting
-const Layout = lazy(() => import("../Layout"));
+// Eager import Layout to avoid dynamic import fetch issues in dev
+import Layout from "../Layout";
 const Home = lazy(() => import("../pages/Home"));
 const FootballMap = lazy(() => import("../pages/FootballMap"));
 const BlogsNews = lazy(() => import("../pages/BlogsNews"));

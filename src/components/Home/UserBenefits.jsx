@@ -1,35 +1,35 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { Wifi, MessageSquare, Presentation, Rss } from "lucide-react";
 import { USER_BENEFITS_PLAYERS } from "../../images";
 
 const UserBenefits = () => {
+  const { t } = useTranslation();
   const benefits = [
     {
       icon: <Wifi size={34} strokeWidth={1.6} />,
-      title: "A Community in Your Hands",
-      desc: "Lorem ipsum dolor sit amet consectetur. Eu ac congue risus sit a ipsum consectetur pretium. Libero.",
+      title: t("userBenefits.items.0.title"),
+      desc: t("userBenefits.items.0.desc"),
     },
     {
       icon: <MessageSquare size={34} strokeWidth={1.6} />,
-      title: "A Community in Your Hands",
-      desc: "Lorem ipsum dolor sit amet consectetur. Eu ac congue risus sit a ipsum consectetur pretium. Libero.",
+      title: t("userBenefits.items.1.title"),
+      desc: t("userBenefits.items.1.desc"),
     },
     {
       icon: <Presentation size={34} strokeWidth={1.6} />,
-      title: "A Community in Your Hands",
-      desc: "Lorem ipsum dolor sit amet consectetur. Eu ac congue risus sit a ipsum consectetur pretium. Libero.",
+      title: t("userBenefits.items.2.title"),
+      desc: t("userBenefits.items.2.desc"),
     },
     {
       icon: <Rss size={34} strokeWidth={1.6} />,
-      title: "A Community in Your Hands",
-      desc: "Lorem ipsum dolor sit amet consectetur. Eu ac congue risus sit a ipsum consectetur pretium. Libero.",
+      title: t("userBenefits.items.3.title"),
+      desc: t("userBenefits.items.3.desc"),
     },
   ];
 
   return (
     <section className="relative mx-auto mt-16 w-full max-w-7xl overflow-hidden rounded-[28px] bg-black px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 text-white">
-      {/* top-right lime stripes removed per design request */}
-
       {/* content */}
       <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
         {/* LEFT: players with lime background shape behind */}
@@ -37,13 +37,8 @@ const UserBenefits = () => {
           {/* lime angled band ONLY behind the players */}
           <div
             aria-hidden="true"
-            className="
-              absolute -left-10 sm:-left-14 md:-left-16
-              top-1/2 -translate-y-1/2
-              h-[115%] w-[125%] -z-10
-            "
+            className="absolute -left-10 sm:-left-14 md:-left-16 top-1/2 -translate-y-1/2 h-[115%] w-[125%] -z-10"
             style={{
-              // main angled body
               clipPath:
                 "polygon(0% 28%, 58% 0%, 74% 12%, 80% 26%, 48% 52%, 0% 84%)",
               background:
@@ -87,14 +82,10 @@ const UserBenefits = () => {
         <div className="flex flex-col items-center md:items-end">
           <div className="w-full md:max-w-[520px] lg:max-w-[560px] text-center md:text-right">
             <h2 className="mb-3 text-lime-400 font-extrabold leading-tight text-[clamp(1.6rem,3.2vw,2.6rem)]">
-              User Benefits
+              {t("userBenefits.heading")}
             </h2>
             <p className="mx-auto md:mx-0 text-gray-300 text-sm sm:text-[15px]">
-              Lorem ipsum dolor sit amet consectetur. Sit eleifend id sed
-              pharetra vel ullamcorper sed aliquet. Lacus habitant tortor
-              pulvinar pellentesque. Donec sed scelerisque nisi ut urna sagittis
-              turpis posuere. Iaculis elementum netus duis ullamcorper eu semper
-              egestas augue. Pretium dictumst donec morbi velit risus.
+              {t("userBenefits.intro")}
             </p>
           </div>
 
@@ -130,3 +121,4 @@ const UserBenefits = () => {
 };
 
 export default UserBenefits;
+

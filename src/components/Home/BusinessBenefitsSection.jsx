@@ -1,29 +1,27 @@
 import React from "react";
 import BenefitItem from "./BenefitItem";
 import { BUSINESS_FRAME_221 } from "../../images";
-
-const benefitsData = [
-  {
-    id: 1,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Curabitur praesent tincidunt commodo et facilisis lobortis libero pretium accumsan.",
-  },
-  {
-    id: 2,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Curabitur praesent tincidunt commodo et facilisis lobortis libero pretium accumsan.",
-  },
-  {
-    id: 3,
-    title: "Lorem ipsum dolor sit amet",
-    description:
-      "Lorem ipsum dolor sit amet consectetur. Curabitur praesent tincidunt commodo et facilisis lobortis libero pretium accumsan.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const BusinessBenefitsSection = () => {
+  const { t } = useTranslation();
+  const benefitsData = [
+    {
+      id: 1,
+      title: t("business.benefits.0.title"),
+      description: t("business.benefits.0.desc"),
+    },
+    {
+      id: 2,
+      title: t("business.benefits.1.title"),
+      description: t("business.benefits.1.desc"),
+    },
+    {
+      id: 3,
+      title: t("business.benefits.2.title"),
+      description: t("business.benefits.2.desc"),
+    },
+  ];
   return (
     <section className="relative bg-black text-white px-4 py-14 sm:px-6 md:px-8 md:py-16">
       {/* top subtle lime glow */}
@@ -40,16 +38,8 @@ const BusinessBenefitsSection = () => {
       <div className="mx-auto max-w-7xl">
         {/* Heading + copy */}
         <div className="mb-10 text-center md:mb-12">
-          <h2 className="mb-3 text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold text-lime-400">
-            Business Benefits
-          </h2>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-[15px]">
-            Lorem ipsum dolor sit amet consectetur. Nulla vestibulum pharetra
-            ornare nec. In adipiscing etiam faucibus morbi sagittis dolor. Neque
-            risus quisque magna vitae nunc tincidunt hendrerit bibendum libero.
-            Nibh vestibulum sed non scelerisque accumsan ultricies neque. Iaculis
-            sit lacus eu elementum sapien feugiat. Blandit diam pretium.
-          </p>
+          <h2 className="mb-2 text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold text-lime-400">{t("business.heading")}</h2>
+          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-[15px]">{t("business.desc")}</p>
         </div>
 
         {/* Content */}

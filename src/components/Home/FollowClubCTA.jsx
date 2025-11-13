@@ -1,7 +1,9 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { FOLLOW_LEFT_PLAYER, FOLLOW_RIGHT_PLAYER } from "../../images";
 
 const FollowClubCTA = () => {
+  const { t } = useTranslation();
   return (
     <section className="relative w-full bg-black py-10 sm:py-12 md:py-16">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
@@ -40,23 +42,13 @@ const FollowClubCTA = () => {
             }}
           />
 
-          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold">
-            Start following you club for
-          </h3>
-          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold -mt-1">
-            current updates
-          </h3>
+          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold">{t("follow.heading1")}</h3>
+          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold -mt-1">{t("follow.heading2")}</h3>
 
-          <p className="relative z-10 mx-auto mt-3 max-w-3xl text-[13px] sm:text-sm leading-relaxed text-black/75">
-            Lorem ipsum dolor sit amet consectetur. A nibh aliquet ultricies
-            fringilla magna ultricies feugiat eu arcu at nisl. Laoreet lacus
-            convallis viverra. Nec risus lacinia ultrices eget cras id massa
-            massa turpis. Euismod proin fermentum pellentesque posuere lacus.
-            Tellus sed porttitor tellus varius malesuada. Pellentesque mi at.
-          </p>
+          <p className="relative z-10 mx-auto mt-3 max-w-3xl text-[13px] sm:text-sm leading-relaxed text-black/75">{t("follow.desc")}</p>
 
           <button className="relative z-10 mt-5 inline-flex items-center justify-center rounded-md bg-black px-5 py-2 text-xs sm:text-sm font-medium text-white transition hover:bg-black/90">
-            Download App Now
+            {t("cta.downloadApp")}
           </button>
         </div>
 

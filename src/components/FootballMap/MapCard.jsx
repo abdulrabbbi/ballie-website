@@ -2,6 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { MAP_CARD_PLACEHOLDER } from "../../images";
 
 // Fix Leaflet default icon issue in React
@@ -16,6 +17,7 @@ const DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon;
 
 export default function MapCard() {
+  const { t } = useTranslation();
   // Example locations (London area)
   const locations = [
     { id: 1, name: "Danish Bar", coords: [51.5074, -0.1278] },
@@ -63,7 +65,7 @@ export default function MapCard() {
         <h2 className="text-accent text-xl sm:text-2xl font-semibold">Danish Bar</h2>
 
         <div className="bg-[#9333ea] text-white rounded-lg py-2 px-4 flex items-center justify-between text-sm font-semibold">
-          <span>Match Screening</span>
+          <span>{t("map.card.matchScreening")}</span>
           <div className="flex items-center gap-4">
             <span>CHL</span>
             <span className="text-lg">VS</span>
@@ -71,11 +73,7 @@ export default function MapCard() {
           </div>
         </div>
 
-        <p className="text-gray-400 text-sm">
-          Lorem ipsum dolor sit amet consectetur. Nunc ipsum mauris quis
-          bibendum volutpat amet. Eleifend amet porttitor vestibulum elit lectus
-          vitae pellentesque. Urna tellus at elit nunc tortor.
-        </p>
+        <p className="text-gray-400 text-sm">{t("map.card.blurb")}</p>
       </div>
     </section>
   );

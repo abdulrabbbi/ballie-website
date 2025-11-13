@@ -1,267 +1,286 @@
-// import React from "react";
-// import { ArrowRight } from "lucide-react";
-// import { HERO_BG } from "../../images";
-
-// const HeroSection = () => {
-//   return (
-//     <section
-//       className="relative w-full overflow-hidden bg-black text-white"
-//       aria-label="Hero"
-//     >
-//       <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 md:px-8">
-//         <header
-//           className="relative isolate overflow-hidden rounded-[28px]"
-//           style={{
-//             minHeight: "100svh",
-//             // shared design tokens
-//             ["--hero-cut"]: "10%",
-//             ["--stats-h"]: "clamp(96px,12vh,140px)",
-//             ["--stats-gap"]: "20px",
-//           }}
-//         >
-//           {/* Background */}
-//           <img
-//             src={HERO_BG}
-//             alt="Football player in action"
-//             className="absolute inset-0 h-full w-full object-cover object-center md:object-right"
-//             loading="eager"
-//             fetchPriority="high"
-//           />
-
-//           {/* Vignette */}
-//           <div
-//             aria-hidden
-//             className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/70 via-transparent to-accent/5"
-//           />
-
-//           {/* Main content kept above stats by reserving space from the bottom */}
-//           <div
-//             className="absolute inset-x-0"
-//             style={{ bottom: "calc(var(--stats-h) + var(--stats-gap) + 12px)" }}
-//           >
-//             <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-6 sm:gap-8 lg:gap-10">
-//               <div className="relative order-2 md:order-1">
-//                 <div
-//                   className="mx-auto md:mx-0 max-w-[700px] text-center md:text-left rounded-[28px] bg-[#161616]/95 p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl"
-//                   style={{
-//                     clipPath:
-//                       "polygon(0 var(--hero-cut), 90% calc(var(--hero-cut) + 55%), 180% 100%, 0% 100%)",
-//                   }}
-//                 >
-//                   <span className="mb-5 inline-block rounded-full bg-accent px-3 py-0.5 sm:py-1  sm:text-xs font-semibold text-black">
-//                     Lorem ipsum
-//                   </span>
-
-//                   <h1 className="mb-3 font-extrabold leading-snug text-accent text-[clamp(1.6rem,3.4vw,3.5rem)]">
-//                     Lorem ipsum <br className="hidden md:block" />
-//                     dolor sit amet consectetur.
-//                   </h1>
-
-//                   <p className="max-w-2xl text-gray-300 text-sm sm:text-[15px] md:text-[16px] lg:text-[17px]">
-//                     Lorem ipsum dolor sit amet consectetur. Mi donec morbi
-//                     aliquam quam tempor enim porta arcu ipsum. Turpis pharetra
-//                     mauris a molestie nullam imperdiet feugiat. Ultricies ut
-//                     pellentesque ac aliquam et morbi.
-//                   </p>
-
-//                   <div className="mt-6 sm:mt-7 md:mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4">
-//                     <button
-//                       type="button"
-//                       className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 md:px-6 text-sm sm:text-base font-medium text-black transition-colors hover:bg-accent/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-//                     >
-//                       Download App <ArrowRight size={16} />
-//                     </button>
-//                     <button
-//                       type="button"
-//                       className="inline-flex h-11 md:h-12 items-center justify-center rounded-md border border-accent px-5 md:px-6 text-sm sm:text-base font-medium text-accent transition-colors hover:bg-accent hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-//                     >
-//                       Learn More
-//                     </button>
-//                   </div>
-//                 </div>
-//               </div>
-
-//               <div className="order-1 md:order-2 min-h-[1px]" />
-//             </div>
-//           </div>
-
-//           {/* Bottom stats kept inside the same viewport and aligned under the card */}
-//           <div
-//             className="absolute inset-x-0 z-20"
-//             style={{ bottom: "var(--stats-gap)" }}
-//           >
-//             <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-6 sm:gap-8 lg:gap-10">
-//               <div className="flex flex-wrap items-stretch justify-center md:justify-start gap-4 sm:gap-5">
-//                 {[0, 1].map((i) => (
-//                   <div
-//                     key={i}
-//                     className="h-[var(--stats-h)] basis-[44%] sm:basis-[38%] md:basis-auto rounded-2xl  bg-[#111111]  px-6 py-5 sm:px-7 sm:py-6 lg:px-8 lg:py-7 shadow-lg flex flex-col justify-center"
-//                     style={{
-//                       clipPath:
-//                         "polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%, 0% var(--hero-cut))",
-//                     }}
-//                   >
-//                     <h3 className="leading-none font-extrabold text-accent text-[clamp(1.75rem,4.2vw,3rem)] tracking-tight">
-//                       100
-//                     </h3>
-//                     <p className="mt-2 text-[11px] sm:text-xs md:text-sm text-gray-300">
-//                       Lorem ipsum dolor sit
-//                     </p>
-//                   </div>
-//                 ))}
-//               </div>
-
-//               <div className="hidden md:block" />
-//             </div>
-//           </div>
-//         </header>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default HeroSection;
-
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { HERO_BG } from "../../images";
 
-const TextContent = () => (
-  <>
-    <span className="mb-5 inline-block rounded-full bg-accent px-3 py-0.5 sm:py-1 sm:text-xs font-semibold text-black">
-      Lorem ipsum
-    </span>
+/**
+ * Responsive upgrades:
+ * - Uses min-h with svh fallback for better mobile viewport sizing.
+ * - Title uses clamp() on 2xl screens, avoiding giant headings on ultrawides.
+ * - Grid rebalances at xl/2xl; image panel scales but never dominates text.
+ * - Stats: 2 cols (xs), 3 cols (md), 4 cols (xl+).
+ * - Short viewport handling (≤700px height): tighter paddings, hide right image.
+ * - Safe-area top padding for notches.
+ */
 
-    <h1 className="mb-3 font-extrabold leading-snug text-accent text-[clamp(1.6rem,3.4vw,3.5rem)]">
-      Lorem ipsum <br className="hidden md:block" />
-      dolor sit amet consectetur.
-    </h1>
+const PrimaryCta = ({ children, className = "", ...props }) => (
+  <a
+    {...props}
+    className={[
+      "inline-flex items-center gap-2 rounded-lg px-5 py-3",
+      "font-semibold tracking-tight",
+      "bg-accent text-gray-900",
+      "shadow-lg shadow-black/25",
+      "transition will-change-transform",
+      "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+      "motion-safe:hover:translate-y-0.5 motion-safe:hover:shadow-xl",
+      "active:translate-y-[1px]",
+      className,
+    ].join(" ")}
+  >
+    {children}
+  </a>
+);
 
-    <p className="max-w-2xl text-gray-300 text-sm sm:text-[15px] md:text-[16px] lg:text-[17px]">
-      Lorem ipsum dolor sit amet consectetur. Mi donec morbi aliquam quam tempor
-      enim porta arcu ipsum. Turpis pharetra mauris a molestie nullam imperdiet
-      feugiat. Ultricies ut pellentesque ac aliquam et morbi.
-    </p>
-
-    <div className="mt-6 sm:mt-7 md:mt-8 flex flex-wrap items-center justify-center md:justify-start gap-3 sm:gap-4">
-      <button
-        type="button"
-        className="inline-flex h-11 md:h-12 items-center justify-center gap-2 rounded-md bg-accent px-5 md:px-6 text-sm sm:text-base font-medium text-black transition-colors hover:bg-accent/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-      >
-        Download App <ArrowRight size={16} />
-      </button>
-      <button
-        type="button"
-        className="inline-flex h-11 md:h-12 items-center justify-center rounded-md border border-accent px-5 md:px-6 text-sm sm:text-base font-medium text-accent transition-colors hover:bg-accent hover:text-black focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-      >
-        Learn More
-      </button>
-    </div>
-  </>
+const SecondaryCta = ({ children, className = "", ...props }) => (
+  <a
+    {...props}
+    className={[
+      "inline-flex items-center gap-2 rounded-lg px-5 py-3",
+      "font-semibold tracking-tight",
+      "border border-white/20 text-white",
+      "bg-white/0 hover:bg-white/5",
+      "transition will-change-transform",
+      "focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70 focus-visible:ring-offset-2 focus-visible:ring-offset-black",
+      "motion-safe:hover:translate-y-0.5",
+      className,
+    ].join(" ")}
+  >
+    {children}
+  </a>
 );
 
 const HeroSection = () => {
+  const rootRef = useRef(null);
+
+  // Reveal-on-scroll (motion-safe)
+  useEffect(() => {
+    const root = rootRef.current;
+    if (!root) return;
+
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced) return;
+
+    const els = root.querySelectorAll("[data-animate]");
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-in");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+    );
+
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  const { t } = useTranslation();
   return (
     <section
-      className="relative w-full overflow-hidden bg-black text-white"
-      aria-label="Hero"
+      ref={rootRef}
+      className="hero-shell relative w-full overflow-hidden bg-black text-white"
+      aria-labelledby="hero-title"
     >
-      <div className="mx-auto w-full max-w-screen-2xl px-4 sm:px-6 md:px-8">
-        <header
-          className="relative isolate overflow-hidden rounded-[28px]"
-          style={{
-            minHeight: "100svh",
-            ["--hero-cut"]: "10%",
-            ["--stats-h"]: "clamp(96px,12vh,140px)",
-            ["--stats-gap"]: "20px",
-          }}
+      {/* Background (decorative) */}
+      <div aria-hidden className="absolute inset-0">
+        <img
+          src={HERO_BG}
+          alt=""
+          role="presentation"
+          className="h-full w-full object-cover object-center lg:object-right"
+          loading="eager"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/60 to-black/10" />
+      </div>
+
+      <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 xl:max-w-[1280px] 2xl:max-w-[1440px]">
+        {/* Grid:
+            - 1 col on mobile
+            - 12-col on lg+
+            - rebalance spans at xl/2xl to keep text line-length healthy
+        */}
+        <div
+          className={[
+            "grid items-center gap-8 sm:gap-10",
+            "py-14 sm:py-20 lg:py-28",
+            "grid-cols-1 lg:grid-cols-12",
+            // height: use svh if supported (applied in <style> below)
+            "min-h-screen lg:min-h-[80vh]",
+          ].join(" ")}
         >
-          {/* Background */}
-          <img
-            src={HERO_BG}
-            alt="Football player in action"
-            className="absolute inset-0 h-full w-full object-cover object-center md:object-right"
-            loading="eager"
-            fetchPriority="high"
-          />
-
-          {/* Vignette */}
+          {/* Left: text */}
           <div
-            aria-hidden
-            className="pointer-events-none absolute inset-0 bg-gradient-to-br from-black/70 via-transparent to-accent/5"
-          />
-
-          {/* Content area – reserves space for stats at the bottom */}
-          <div
-            className="absolute inset-x-0"
-            style={{ bottom: "calc(var(--stats-h) + var(--stats-gap) + 12px)" }}
+            className="lg:col-span-7 xl:col-span-6 2xl:col-span-6"
+            data-animate
+            data-anim-type="fade-up"
           >
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-6 sm:gap-8 lg:gap-10">
-              {/* Text card (MOBILE/TABLET – simpler shape to avoid overlap) */}
-              <div className="relative order-2 md:order-1 lg:hidden">
-                <div
-                  className="mx-auto md:mx-0 max-w-[700px] text-center md:text-left rounded-[24px] bg-[#161616]/95 p-5 sm:p-6 md:p-8 shadow-xl"
-                  style={{
-                    // very subtle diagonal on small screens so content doesn't
-                    // intrude onto the player image; keeps layout clean
-                    clipPath:
-                      "polygon(0 var(--hero-cut), 95% calc(var(--hero-cut) + 10%), 95% 100%, 0% 100%)",
-                  }}
-                >
-                  <TextContent />
-                </div>
+            <div className="pt-[calc(env(safe-area-inset-top))]">
+              {/* Badge */}
+              <div className="mb-5 sm:mb-6">
+                <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] sm:text-xs font-semibold bg-accent/15 text-accent ring-1 ring-inset ring-accent/30">
+                  {t("hero.home.badge")}
+                </span>
               </div>
 
-              {/* Text card (LAPTOP/DESKTOP – keep your current look unchanged) */}
-              <div className="relative order-2 md:order-1 hidden lg:block">
-                <div
-                  className="mx-auto md:mx-0 max-w-[700px] text-center md:text-left rounded-[28px] bg-[#161616]/95 p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl"
-                  style={{
-                    clipPath:
-                      "polygon(0 var(--hero-cut), 90% calc(var(--hero-cut) + 55%), 180% 100%, 0% 100%)",
-                  }}
-                >
-                  <TextContent />
-                </div>
+              {/* Title with clamp at 2xl to avoid over-scaling */}
+              <h1
+                id="hero-title"
+                className="text-balance font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
+              >
+                {t("hero.home.title")}
+              </h1>
+
+              {/* Supporting copy */}
+              <p className="mt-5 max-w-prose text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200">
+                Born from a passion for the beautiful game, Ballie Live is the platform for everyone who
+                doesn’t just want to watch football—but truly experience it. Find where your favourite club
+                is playing live, follow matches in real time, and discover venues where football lives.
+                Ballie Live connects fans, clubs, and pubs in one app—bringing the energy of the pitch
+                straight to your screen, anytime, anywhere.
+              </p>
+
+              {/* CTAs */}
+              <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
+                <PrimaryCta href="#download" aria-label={t("cta.downloadApp")}>
+                  <span>{t("cta.downloadApp")}</span>
+                  <ArrowRight size={18} aria-hidden />
+                </PrimaryCta>
+
+                <SecondaryCta href="#learn-more" aria-label={t("cta.learnMore")}>
+                  {t("cta.learnMore")}
+                </SecondaryCta>
               </div>
 
-              {/* Right column used for balance */}
-              <div className="order-1 md:order-2 min-h-[1px]" />
-            </div>
-          </div>
-
-          {/* Bottom stats – stay within the viewport; 2-up on mobile/tablet, auto on laptop */}
-          <div
-            className="absolute inset-x-0 z-20"
-            style={{ bottom: "var(--stats-gap)" }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] gap-6 sm:gap-8 lg:gap-10">
-              <div className="flex flex-wrap items-stretch justify-center md:justify-start gap-4 sm:gap-5">
-                {[0, 1].map((i) => (
+              {/* Stats: 2 / 3 / 4 columns by breakpoint */}
+              <dl
+                className="mt-9 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
+                data-animate
+                data-anim-type="fade-in"
+                data-anim-delay="100"
+              >
+                {[
+                  { k: t("hero.home.stats.venues"), v: "10k+" },
+                  { k: t("hero.home.stats.liveMatches"), v: "50k+/mo" },
+                  { k: t("hero.home.stats.clubs"), v: "2k+" },
+                  { k: t("hero.home.stats.cities"), v: "120+" },
+                ].map((it) => (
                   <div
-                    key={i}
-                    className="h-[var(--stats-h)] basis-[48%] sm:basis-[42%] md:basis-[44%] lg:basis-auto rounded-2xl bg-[#111111] px-6 py-5 sm:px-7 sm:py-6 lg:px-8 lg:py-7 shadow-lg flex flex-col justify-center"
-                    style={{
-                      clipPath:
-                        "polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%, 0% var(--hero-cut))",
-                    }}
+                    key={it.k}
+                    className="rounded-xl bg-white/5 p-3 sm:p-4 ring-1 ring-white/10"
                   >
-                    <h3 className="leading-none font-extrabold text-accent text-[clamp(1.75rem,4.2vw,3rem)] tracking-tight">
-                      100
-                    </h3>
-                    <p className="mt-2 text-[11px] sm:text-xs md:text-sm text-gray-300">
-                      Lorem ipsum dolor sit
-                    </p>
+                    <dt className="text-[11px] sm:text-xs text-gray-300">{it.k}</dt>
+                    <dd className="mt-1 text-xl sm:text-2xl font-extrabold tracking-tight text-white">
+                      {it.v}
+                    </dd>
                   </div>
                 ))}
-              </div>
-
-              {/* right spacer for alignment on md+ */}
-              <div className="hidden md:block" />
+              </dl>
             </div>
           </div>
-        </header>
+
+          {/* Right: image panel (hidden on short viewports) */}
+          <div
+            className="hero-right hidden lg:col-span-5 lg:block xl:col-span-6 2xl:col-span-6"
+            data-animate
+            data-anim-type="scale-in"
+            data-anim-delay="100"
+          >
+            <div
+              aria-hidden
+              className="relative w-full overflow-hidden rounded-3xl ring-1 ring-white/10"
+            >
+              {/* Aspect shifts with screen to avoid awkward crops */}
+              <div className="relative aspect-[5/6] xl:aspect-[4/5] 2xl:aspect-[16/10]">
+                <img
+                  src={HERO_BG}
+                  alt=""
+                  role="presentation"
+                  className="absolute inset-0 h-full w-full object-cover object-center motion-safe:will-change-transform parallax-img"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/0 via-black/0 to-black/40" />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      {/* Animations + responsive helpers */}
+      <style>
+        {`
+          /* Prefer svh for mobile address bar behaviors if supported */
+          @supports (height: 100svh) {
+            .hero-shell > div > .grid { min-height: 100svh; }
+          }
+
+          /* Keyframes */
+          @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          @keyframes scaleIn {
+            from { opacity: 0; transform: scale(.96); }
+            to { opacity: 1; transform: scale(1); }
+          }
+
+          /* Base state */
+          [data-animate] { opacity: 0; }
+          .animate-in { opacity: 1; }
+
+          /* Types */
+          [data-animate][data-anim-type="fade-up"].animate-in {
+            animation: fadeUp 500ms cubic-bezier(.2,.8,.2,1) both;
+          }
+          [data-animate][data-anim-type="fade-in"].animate-in {
+            animation: fadeIn 500ms ease-out both;
+          }
+          [data-animate][data-anim-type="scale-in"].animate-in {
+            animation: scaleIn 520ms cubic-bezier(.2,.8,.2,1) both;
+          }
+
+          /* Optional delays */
+          [data-animate][data-anim-delay="100"].animate-in { animation-delay: 100ms; }
+          [data-animate][data-anim-delay="200"].animate-in { animation-delay: 200ms; }
+          [data-animate][data-anim-delay="300"].animate-in { animation-delay: 300ms; }
+
+          /* Subtle parallax on desktop, motion-safe */
+          @media (prefers-reduced-motion: no-preference) {
+            .parallax-img { transform: translateY(0); }
+            @media (min-width: 1024px) {
+              :root:has(body) .parallax-img {
+                animation: parallaxY 12s linear infinite alternate;
+              }
+              @keyframes parallaxY {
+                from { transform: translateY(-3%); }
+                to   { transform: translateY(3%); }
+              }
+            }
+          }
+
+          /* Short viewport handling (e.g., landscape phones / small laptop windows) */
+          @media (max-height: 700px) {
+            .hero-shell .grid { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+            .hero-right { display: none !important; }
+          }
+
+          /* Respect reduced motion explicitly */
+          @media (prefers-reduced-motion: reduce) {
+            .motion-safe\\:hover\\:translate-y-0\\.5:hover { transform: none !important; }
+            .active\\:translate-y-\\[1px\\]:active { transform: none !important; }
+          }
+        `}
+      </style>
     </section>
   );
 };

@@ -1,0 +1,79 @@
+import React from "react";
+import { Coins, Palette, BadgePercent, Gamepad2, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
+
+export default function BallieCoinsSection() {
+  const { t } = useTranslation();
+  const features = [
+    { icon: <Palette size={22} strokeWidth={1.8} />, title: t("coins.features.personalise.title"), desc: t("coins.features.personalise.desc") },
+    { icon: <BadgePercent size={22} strokeWidth={1.8} />, title: t("coins.features.discounts.title"), desc: t("coins.features.discounts.desc") },
+    { icon: <Gamepad2 size={22} strokeWidth={1.8} />, title: t("coins.features.game.title"), desc: t("coins.features.game.desc") },
+  ];
+  return (
+    <section className="w-full bg-black text-white">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 items-start">
+          {/* LEFT: copy */}
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-accent/20 px-3 py-1 text-xs font-semibold text-accent ring-1 ring-inset ring-accent/30">
+              <Coins size={16} />
+              Ballie Coins
+            </div>
+            <h2 className="mt-3 text-lime-400 font-extrabold leading-tight text-[clamp(1.6rem,3.2vw,2.6rem)]">{t("coins.title")}</h2>
+            <p className="mt-3 text-sm sm:text-[15px] text-gray-300 max-w-prose">{t("coins.intro")}</p>
+
+            <ul className="mt-6 space-y-3">
+              {features.map((f, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <div className="mt-1 text-lime-400">{f.icon}</div>
+                  <div>
+                    <p className="text-sm sm:text-[15px] font-semibold text-white">{f.title}</p>
+                    <p className="text-xs sm:text-sm text-gray-400">{f.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-5 text-sm sm:text-[15px] text-gray-300">{t("coins.closing")}</p>
+
+            <div className="mt-7">
+              <a
+                href="#download"
+                className="inline-flex items-center gap-2 rounded-md bg-accent px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-accent/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/70"
+              >
+                {t("cta.downloadApp")} <ArrowRight size={16} />
+              </a>
+            </div>
+          </div>
+
+          {/* RIGHT: simple card for visual balance */}
+          <div className="rounded-2xl bg-[#2a2a2a]/80 p-6 ring-1 ring-white/10 shadow-[0_18px_50px_rgba(0,0,0,0.45)]">
+            <div className="rounded-xl bg-gradient-to-br from-black/0 via-black/30 to-black/60 p-5 sm:p-6">
+              <div className="flex items-center gap-3 text-lime-400">
+                <Coins size={28} />
+                <div>
+                  <p className="text-sm font-semibold text-white">Earn Coins by playing your part</p>
+                  <p className="text-xs text-gray-400">Check in • Explore places • Share with fans</p>
+                </div>
+              </div>
+              <div className="mt-5 grid grid-cols-3 gap-3 text-center">
+                <div className="rounded-lg bg-white/5 p-3">
+                  <p className="text-xl font-extrabold text-white">+25</p>
+                  <p className="mt-1 text-[11px] text-gray-400">Match check‑in</p>
+                </div>
+                <div className="rounded-lg bg-white/5 p-3">
+                  <p className="text-xl font-extrabold text-white">+10</p>
+                  <p className="mt-1 text-[11px] text-gray-400">New venue</p>
+                </div>
+                <div className="rounded-lg bg-white/5 p-3">
+                  <p className="text-xl font-extrabold text-white">+5</p>
+                  <p className="mt-1 text-[11px] text-gray-400">Share & react</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

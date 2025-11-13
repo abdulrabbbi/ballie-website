@@ -1,16 +1,12 @@
 import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
-import i18n from "../i18n";
+import i18n from "../i18n/i18n";
 
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const allowed = new Set(["en", "fr", "de"]);
+  const allowed = new Set(["en", "de", "es"]);
   const initial = (() => {
     const stored = localStorage.getItem("lang");
-    if (stored === "ur") {
-      localStorage.removeItem("lang");
-      return "en";
-    }
     if (stored && allowed.has(stored)) return stored;
     const i18 = i18n.language;
     if (i18 && allowed.has(i18)) return i18;
@@ -33,6 +29,9 @@ export function LanguageProvider({ children }) {
     localStorage.setItem("lang", lng);
     await i18n.changeLanguage(lng);
     setLanguage(lng);
+    try {
+      document.documentElement.lang = lng;
+    } catch {}
     // brief shimmer for UX feedback
     window.requestAnimationFrame(() => {
       setTimeout(() => setIsSwitching(false), 280);

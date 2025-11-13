@@ -1,4 +1,5 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import {
   APP_PHONE_MOCK,
   GOOGLE_PLAY_BADGE,
@@ -6,6 +7,7 @@ import {
 } from "../../images";
 
 const AppPromoSection = () => {
+  const { t } = useTranslation();
   return (
     <section className="w-full bg-black py-10 sm:py-14 md:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
@@ -35,25 +37,15 @@ const AppPromoSection = () => {
 
           {/* RIGHT: content */}
           <div className="text-center md:text-left">
-            <h3 className="text-lime-400 font-extrabold leading-tight text-[clamp(1.4rem,3.2vw,2.2rem)]">
-              Lorem ipsum dolor sit amet <br className="hidden sm:block" />
-              consectetur. Non.
-            </h3>
+            <h3 className="text-lime-400 font-extrabold leading-tight text-[clamp(1.4rem,3.2vw,2.2rem)]">{t("appPromo.heading")}</h3>
 
-            <p className="mt-3 max-w-[580px] text-[13px] sm:text-sm leading-relaxed text-gray-200/90 md:mt-4">
-              Lorem ipsum dolor sit amet consectetur. Nunc tempus massa a odio
-              blandit volutpat amet. Euismod ante porttitor volutpat non lectus
-              nec etiam pellentesque. Vivamus eget cras id massa tempus
-              facilisis id porta eu eget. Sit consequat ornare amet nec
-              habitasse molestie tellus nunc aliquet malesuada in gravida sit
-              aliquam facilisis.
-            </p>
+            <p className="mt-3 max-w-[580px] text-[13px] sm:text-sm leading-relaxed text-gray-200/90 md:mt-4">{t("appPromo.desc")}</p>
 
             {/* store badges */}
             <div className="mt-5 flex flex-wrap items-center justify-center gap-3 md:justify-start">
               {/* Download App Section */}
               <div className="mt-4 md:mt-0 flex flex-col">
-                <p className="text-sm mb-2 font-medium">Download app now</p>
+                <p className="text-sm mb-2 font-medium">{t("appPromo.downloadNow")}</p>
                 <div className="flex gap-2">
                   {/* Apple Store */}
                   <div className="px-3 py-2 bg-black text-white flex items-center text-sm gap-2 rounded-md w-fit">

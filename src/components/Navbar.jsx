@@ -3,7 +3,7 @@ import { createPortal } from "react-dom";
 import { Link, NavLink } from "react-router-dom";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import LanguageSelector from "./LanguageSelector";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -117,7 +117,7 @@ const Navbar = () => {
                   }`
                 }
               >
-                Ballie for You
+                {t("nav.ballieForYou")}
               </NavLink>
               <NavLink
                 to="/business-benefits"
@@ -129,7 +129,7 @@ const Navbar = () => {
                   }`
                 }
               >
-                Ballie for Business
+                {t("nav.ballieForBusiness")}
               </NavLink>
             </div>
 
@@ -149,7 +149,7 @@ const Navbar = () => {
             ))}
 
             <div className="flex items-center gap-4">
-              <LanguageSelector />
+              <LanguageSwitcher />
               <a
                 href="#"
                 className="bg-accent text-black font-medium text-sm px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-accent/90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
@@ -168,7 +168,7 @@ const Navbar = () => {
             onClick={() => setOpen((v) => !v)}
             className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">{t("nav.openMainMenu")}</span>
             {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -192,7 +192,7 @@ const Navbar = () => {
               {/* Drawer */}
               <aside className="absolute right-0 top-0 h-full w-80 max-w-[88%] bg-[#1f1f1f] text-white shadow-2xl transform transition-transform duration-300 ease-out translate-x-0 overflow-y-auto z-[1002]">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-                  <span className="font-semibold">Menu</span>
+              <span className="font-semibold">{t("nav.menu")}</span>
                   <button
                     type="button"
                     aria-label="Close menu"
@@ -217,8 +217,8 @@ const Navbar = () => {
                             : "text-gray-200 hover:text-white"
                         }`
                       }
-                    >
-                      Ballie for You
+                      >
+                        {t("nav.ballieForYou")}
                     </NavLink>
                     <NavLink
                       to="/business-benefits"
@@ -230,16 +230,14 @@ const Navbar = () => {
                             : "text-gray-200 hover:text-white"
                         }`
                       }
-                    >
-                      Ballie for Business
+                      >
+                        {t("nav.ballieForBusiness")}
                     </NavLink>
                   </div>
 
                   <ul className="space-y-3">
                     <li>
-                      <h3 className="text-sm font-semibold text-accent">
-                        Ballie Coins
-                      </h3>
+                      <h3 className="text-sm font-semibold text-accent">{t("nav.coins")}</h3>
                       <p className="text-xs text-gray-300">
                         Placeholder: Explanation of Ballie Coins and usage will
                         appear here.
@@ -257,13 +255,11 @@ const Navbar = () => {
                           }`
                         }
                       >
-                        Ballie Maps
+                        {t("nav.ballieMaps")}
                       </NavLink>
                     </li>
                     <li>
-                      <h3 className="text-sm font-semibold text-accent">
-                        About the Concept
-                      </h3>
+                      <h3 className="text-sm font-semibold text-accent">{t("nav.aboutConcept")}</h3>
                       <p className="text-xs text-gray-300 mb-1">
                         Placeholder: Explanation of the concept. Link to app
                         download below.
@@ -288,12 +284,12 @@ const Navbar = () => {
                           }`
                         }
                       >
-                        Blog & News
+                        {t("nav.blogNews")}
                       </NavLink>
                     </li>
                     <li>
                       <h3 className="text-sm font-semibold text-accent">
-                        Ballie for You
+                        {t("nav.ballieForYou")}
                       </h3>
                       <p className="text-xs text-gray-300">
                         Placeholder: Section content to be provided later.
@@ -302,7 +298,7 @@ const Navbar = () => {
                   </ul>
 
                   <div className="mt-4 flex items-center justify-between">
-                    <LanguageSelector
+                    <LanguageSwitcher
                       inline={false}
                       onSelected={() => setOpen(false)}
                     />
@@ -325,3 +321,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
