@@ -48,9 +48,18 @@
     "heading": "Ballie For Business – Where football fills your venue",
     "desc": "Where the passion for football begins, Ballie Live brings people together — at your place. With a free Ballie Live Business account, your café, bar, or sports venue becomes visible to thousands of football fans looking for the perfect spot to celebrate the game together. Show which matches you’re broadcasting — Ballie Live takes care of the rest. Every match night becomes a full house. Ballie Live connects your venue with the emotion and energy of football.",
     "benefits": [
-      { "title": "Be seen by football fans", "desc": "Make your venue visible to thousands of supporters searching for the perfect place to watch together." },
-      { "title": "Publish your live matches", "desc": "Easily show which games you’re broadcasting so fans can find you fast." },
-      { "title": "Turn match nights into full houses", "desc": "Bring the energy of the game into your venue and boost footfall." }
+      {
+        "title": "Be seen by football fans",
+        "desc": "Make your venue visible to thousands of supporters searching for the perfect place to watch together."
+      },
+      {
+        "title": "Publish your live matches",
+        "desc": "Easily show which games you’re broadcasting so fans can find you fast."
+      },
+      {
+        "title": "Turn match nights into full houses",
+        "desc": "Bring the energy of the game into your venue and boost footfall."
+      }
     ]
   },
   "follow": {
@@ -68,22 +77,42 @@
     "intro": "With Ballie Live Coins, you get more out of your football experience. Earn them by being active in the app — check in at matches, explore new locations, or share your passion with other fans.",
     "closing": "Ballie Live becomes your playground — where football never stops.",
     "features": {
-      "personalise": { "title": "Personalise your app", "desc": "Unlock exclusive themes of your favourite club or player." },
-      "discounts": { "title": "Save on football gear", "desc": "Get discounts on shirts, accessories, and more." },
-      "game": { "title": "Power up the Ballie Game", "desc": "Purchase updates and extras in the upcoming Ballie Live Game." }
+      "personalise": {
+        "title": "Personalise your app",
+        "desc": "Unlock exclusive themes of your favourite club or player."
+      },
+      "discounts": {
+        "title": "Save on football gear",
+        "desc": "Get discounts on shirts, accessories, and more."
+      },
+      "game": {
+        "title": "Power up the Ballie Game",
+        "desc": "Purchase updates and extras in the upcoming Ballie Live Game."
+      }
     }
   },
   "userBenefits": {
     "heading": "Football is more than a game.",
     "intro": "It’s a feeling. And that feeling lives at Ballie Live.",
     "items": [
-      { "title": "Real‑time match updates", "desc": "Follow matches in real time and never miss a moment." },
-      { "title": "Connect fans, clubs & venues", "desc": "Ballie Live brings fans, clubs, and venues together in one app." },
-      { "title": "Discover football venues", "desc": "Find pubs and places where football lives near you." },
-      { "title": "Find your club live", "desc": "Easily see where your favourite club is playing live." }
+      {
+        "title": "Real‑time match updates",
+        "desc": "Follow matches in real time and never miss a moment."
+      },
+      {
+        "title": "Connect fans, clubs & venues",
+        "desc": "Ballie Live brings fans, clubs, and venues together in one app."
+      },
+      {
+        "title": "Discover football venues",
+        "desc": "Find pubs and places where football lives near you."
+      },
+      {
+        "title": "Find your club live",
+        "desc": "Easily see where your favourite club is playing live."
+      }
     ]
-  }
-  ,
+  },
   "footer": {
     "advertise": {
       "title": "Advertise with us",

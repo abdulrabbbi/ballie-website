@@ -133,18 +133,14 @@ const HeroSection = () => {
               {/* Title with clamp at 2xl to avoid over-scaling */}
               <h1
                 id="hero-title"
-                className="text-balance font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
+                className="text-balance  font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
               >
                 {t("hero.home.title")}
               </h1>
 
               {/* Supporting copy */}
               <p className="mt-5 max-w-prose text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200">
-                Born from a passion for the beautiful game, Ballie Live is the platform for everyone who
-                doesn’t just want to watch football—but truly experience it. Find where your favourite club
-                is playing live, follow matches in real time, and discover venues where football lives.
-                Ballie Live connects fans, clubs, and pubs in one app—bringing the energy of the pitch
-                straight to your screen, anytime, anywhere.
+                {t("hero.home.desc")}
               </p>
 
               {/* CTAs */}
@@ -154,7 +150,10 @@ const HeroSection = () => {
                   <ArrowRight size={18} aria-hidden />
                 </PrimaryCta>
 
-                <SecondaryCta href="#learn-more" aria-label={t("cta.learnMore")}>
+                <SecondaryCta
+                  href="#learn-more"
+                  aria-label={t("cta.learnMore")}
+                >
                   {t("cta.learnMore")}
                 </SecondaryCta>
               </div>
@@ -176,7 +175,9 @@ const HeroSection = () => {
                     key={it.k}
                     className="rounded-xl bg-white/5 p-3 sm:p-4 ring-1 ring-white/10"
                   >
-                    <dt className="text-[11px] sm:text-xs text-gray-300">{it.k}</dt>
+                    <dt className="text-[11px] sm:text-xs text-gray-300">
+                      {it.k}
+                    </dt>
                     <dd className="mt-1 text-xl sm:text-2xl font-extrabold tracking-tight text-white">
                       {it.v}
                     </dd>
