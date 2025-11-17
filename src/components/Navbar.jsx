@@ -46,7 +46,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when drawer is open on mobile/tablet (prevents layout shift)
+  // Lock body scroll when drawer is open on mobile/tablet
   useEffect(() => {
     if (!open) return;
     const prevOverflow = document.body.style.overflow;
@@ -102,7 +102,7 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Desktop/Laptop nav (visible from lg and up to keep iPad using drawer) */}
+          {/* Desktop/Laptop nav */}
           <div className="hidden lg:flex lg:items-center lg:space-x-6">
             {/* Tabs: Ballie for You / Ballie for Business */}
             <div className="hidden lg:flex items-center bg-white/5 rounded-full p-1">
@@ -149,6 +149,7 @@ const Navbar = () => {
             ))}
 
             <div className="flex items-center gap-4">
+              {/* Desktop language switcher */}
               <LanguageSwitcher />
               <a
                 href="#"
@@ -159,18 +160,21 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile/Tablet menu button (visible < lg so iPad uses drawer) */}
-          <button
-            type="button"
-            aria-label="Toggle menu"
-            aria-controls="mobile-menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
-          >
-            <span className="sr-only">{t("nav.openMainMenu")}</span>
-            {open ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          {/* Mobile/Tablet: language toggle + menu button at the top */}
+          <div className="flex items-center gap-2 lg:hidden">
+            <LanguageSwitcher inline />
+            <button
+              type="button"
+              aria-label="Toggle menu"
+              aria-controls="mobile-menu"
+              aria-expanded={open}
+              onClick={() => setOpen((v) => !v)}
+              className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
+            >
+              <span className="sr-only">{t("nav.openMainMenu")}</span>
+              {open ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile/Tablet side menu (drawer) */}
@@ -192,7 +196,7 @@ const Navbar = () => {
               {/* Drawer */}
               <aside className="absolute right-0 top-0 h-full w-80 max-w-[88%] bg-[#1f1f1f] text-white shadow-2xl transform transition-transform duration-300 ease-out translate-x-0 overflow-y-auto z-[1002]">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-              <span className="font-semibold">{t("nav.menu")}</span>
+                  <span className="font-semibold">{t("nav.menu")}</span>
                   <button
                     type="button"
                     aria-label="Close menu"
@@ -217,8 +221,8 @@ const Navbar = () => {
                             : "text-gray-200 hover:text-white"
                         }`
                       }
-                      >
-                        {t("nav.ballieForYou")}
+                    >
+                      {t("nav.ballieForYou")}
                     </NavLink>
                     <NavLink
                       to="/business-benefits"
@@ -230,19 +234,13 @@ const Navbar = () => {
                             : "text-gray-200 hover:text-white"
                         }`
                       }
-                      >
-                        {t("nav.ballieForBusiness")}
+                    >
+                      {t("nav.ballieForBusiness")}
                     </NavLink>
                   </div>
 
-                  <ul className="space-y-3">
-                    <li>
-                      <h3 className="text-sm font-semibold text-accent">{t("nav.coins")}</h3>
-                      <p className="text-xs text-gray-300">
-                        Placeholder: Explanation of Ballie Coins and usage will
-                        appear here.
-                      </p>
-                    </li>
+                  {/* Simple list of links */}
+                  <ul className="space-y-2">
                     <li>
                       <NavLink
                         to="/football-map"
@@ -259,20 +257,6 @@ const Navbar = () => {
                       </NavLink>
                     </li>
                     <li>
-                      <h3 className="text-sm font-semibold text-accent">{t("nav.aboutConcept")}</h3>
-                      <p className="text-xs text-gray-300 mb-1">
-                        Placeholder: Explanation of the concept. Link to app
-                        download below.
-                      </p>
-                      <a
-                        href="#"
-                        className="inline-flex items-center gap-2 text-black bg-accent px-3 py-1.5 rounded-md text-sm"
-                        onClick={() => setOpen(false)}
-                      >
-                        {t("nav.download")} <ArrowRight size={16} />
-                      </a>
-                    </li>
-                    <li>
                       <NavLink
                         to="/blogs-news"
                         onClick={() => setOpen(false)}
@@ -287,24 +271,13 @@ const Navbar = () => {
                         {t("nav.blogNews")}
                       </NavLink>
                     </li>
-                    <li>
-                      <h3 className="text-sm font-semibold text-accent">
-                        {t("nav.ballieForYou")}
-                      </h3>
-                      <p className="text-xs text-gray-300">
-                        Placeholder: Section content to be provided later.
-                      </p>
-                    </li>
                   </ul>
 
-                  <div className="mt-4 flex items-center justify-between">
-                    <LanguageSwitcher
-                      inline={false}
-                      onSelected={() => setOpen(false)}
-                    />
+                  {/* Single Download button at bottom */}
+                  <div className="mt-6 mb-4">
                     <a
                       href="#"
-                      className="inline-flex items-center justify-center bg-accent text-black font-medium text-sm px-4 py-2 rounded-lg gap-2 hover:bg-accent/90 transition"
+                      className="w-full inline-flex items-center justify-center bg-accent text-black font-medium text-sm px-4 py-2 rounded-lg gap-2 hover:bg-accent/90 transition"
                       onClick={() => setOpen(false)}
                     >
                       {t("nav.download")} <ArrowRight size={16} />
@@ -321,4 +294,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
