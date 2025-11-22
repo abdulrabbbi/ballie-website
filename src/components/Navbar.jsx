@@ -7,12 +7,27 @@ import LanguageSwitcher from "./LanguageSwitcher";
 
 const Navbar = () => {
   const { t } = useTranslation();
+
   const navItems = [
-    { name: t("nav.home"), path: "/" },
-    { name: t("nav.businessBenefits"), path: "/business-benefits" },
-    { name: t("nav.footballMap"), path: "/football-map" },
-    { name: t("nav.blogsNews"), path: "/blogs-news" },
+    { key: "home", name: t("nav.home", "Home"), path: "/" },
+    {
+      key: "businessBenefits",
+      name: t("nav.businessBenefits", "Business Benefits"),
+      path: "/business-benefits",
+    },
+    {
+      key: "footballMap",
+      name: t("nav.footballMap", "Football Map"),
+      path: "/football-map",
+    },
+    {
+      key: "blogsNews",
+      name: t("nav.blogsNews", "Blogs & News"),
+      path: "/blogs-news",
+    },
   ];
+
+  // For desktop secondary links (non-tabs)
   const navSecondary = navItems.filter(
     (i) => i.path !== "/" && i.path !== "/business-benefits"
   );
@@ -26,22 +41,25 @@ const Navbar = () => {
   useEffect(() => {
     lastY.current = window.scrollY;
     let ticking = false;
+
     const onScroll = () => {
-      const run = () => {
+      if (ticking) return;
+      ticking = true;
+
+      window.requestAnimationFrame(() => {
         const y = window.scrollY;
         setScrolled(y > 10);
+
         const goingDown = y > lastY.current;
         if (Math.abs(y - lastY.current) > 6) {
           setHiddenOnScroll(goingDown && y > 64);
           lastY.current = y;
         }
+
         ticking = false;
-      };
-      if (!ticking) {
-        window.requestAnimationFrame(run);
-        ticking = true;
-      }
+      });
     };
+
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
@@ -49,6 +67,7 @@ const Navbar = () => {
   // Lock body scroll when drawer is open on mobile/tablet
   useEffect(() => {
     if (!open) return;
+
     const prevOverflow = document.body.style.overflow;
     const prevPaddingRight = document.body.style.paddingRight;
     const scrollbarWidth =
@@ -58,6 +77,9 @@ const Navbar = () => {
     if (scrollbarWidth > 0) {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
+
+    // Ensure navbar not hidden while menu is open
+    setHiddenOnScroll(false);
 
     return () => {
       document.body.style.overflow = prevOverflow;
@@ -75,21 +97,29 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
+  // Helper for closing menu on nav click
+  const handleNavClick = () => {
+    setOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-0 inset-x-0 z-[1000] text-white transition-[transform,opacity,backdrop-filter,box-shadow] duration-300 ease-out ${
         hiddenOnScroll
           ? "-translate-y-full opacity-0"
           : "translate-y-0 opacity-100"
-      } ${scrolled ? "backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]" : ""}`}
+      } ${
+        scrolled ? "backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.3)]" : ""
+      }`}
       role="navigation"
       aria-label="Main"
     >
       <div
-        className="bg-[#231f20]/90"
+        className="bg-[#1e201d]/90"
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
         <div className="max-w-screen-xl mx-auto px-4 md:px-6 flex items-center justify-between rounded-xl py-3">
+          {/* Logo */}
           <Link
             to="/"
             aria-label="Go to home"
@@ -117,7 +147,7 @@ const Navbar = () => {
                   }`
                 }
               >
-                {t("nav.ballieForYou")}
+                {t("nav.ballieForYou", "Ballie For You")}
               </NavLink>
               <NavLink
                 to="/business-benefits"
@@ -129,15 +159,15 @@ const Navbar = () => {
                   }`
                 }
               >
-                {t("nav.ballieForBusiness")}
+                {t("nav.ballieForBusiness", "Ballie For Business")}
               </NavLink>
             </div>
 
+            {/* Secondary desktop links */}
             {navSecondary.map((item) => (
               <NavLink
                 key={item.path}
                 to={item.path}
-                end={item.path === "/"}
                 className={({ isActive }) =>
                   `text-sm hover:text-accent transition ${
                     isActive ? "text-accent font-semibold" : "text-gray-200"
@@ -155,23 +185,29 @@ const Navbar = () => {
                 href="#"
                 className="bg-accent text-black font-medium text-sm px-4 py-2 rounded-lg flex items-center gap-2 hover:bg-accent/90 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
               >
-                {t("nav.download")} <ArrowRight size={16} />
+                {t("nav.download", "Download")} <ArrowRight size={16} />
               </a>
             </div>
           </div>
 
-          {/* Mobile/Tablet: language toggle + menu button at the top */}
+          {/* Mobile/Tablet: language toggle + menu button */}
           <div className="flex items-center gap-2 lg:hidden">
             <LanguageSwitcher inline />
             <button
               type="button"
-              aria-label="Toggle menu"
+              aria-label={
+                open
+                  ? t("nav.closeMenu", "Close menu")
+                  : t("nav.openMainMenu", "Open main menu")
+              }
               aria-controls="mobile-menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-accent/60"
             >
-              <span className="sr-only">{t("nav.openMainMenu")}</span>
+              <span className="sr-only">
+                {t("nav.openMainMenu", "Open main menu")}
+              </span>
               {open ? <X size={20} /> : <Menu size={20} />}
             </button>
           </div>
@@ -190,30 +226,34 @@ const Navbar = () => {
               {/* Backdrop */}
               <div
                 className="fixed inset-0 bg-black/70 transition-opacity"
-                onClick={() => setOpen(false)}
+                onClick={handleNavClick}
                 aria-hidden="true"
               />
+
               {/* Drawer */}
               <aside className="absolute right-0 top-0 h-full w-80 max-w-[88%] bg-[#1f1f1f] text-white shadow-2xl transform transition-transform duration-300 ease-out translate-x-0 overflow-y-auto z-[1002]">
                 <div className="flex items-center justify-between px-4 py-3 border-b border-white/10">
-                  <span className="font-semibold">{t("nav.menu")}</span>
+                  <span className="font-semibold">{t("nav.menu", "Menu")}</span>
                   <button
                     type="button"
-                    aria-label="Close menu"
-                    onClick={() => setOpen(false)}
+                    aria-label={t("nav.closeMenu", "Close menu")}
+                    onClick={handleNavClick}
                     className="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-gray-800"
                   >
                     <X size={20} />
                   </button>
                 </div>
 
-                <nav className="px-4 py-3" aria-label="Mobile navigation">
+                <nav
+                  className="px-4 py-3 space-y-5"
+                  aria-label="Mobile navigation"
+                >
                   {/* Tabs inside drawer */}
-                  <div className="flex items-center bg-white/5 rounded-full p-1 mb-4">
+                  <div className="flex items-center bg-white/5 rounded-full p-1">
                     <NavLink
                       to="/"
                       end
-                      onClick={() => setOpen(false)}
+                      onClick={handleNavClick}
                       className={({ isActive }) =>
                         `flex-1 text-center px-3 py-1.5 rounded-full text-sm transition ${
                           isActive
@@ -222,11 +262,11 @@ const Navbar = () => {
                         }`
                       }
                     >
-                      {t("nav.ballieForYou")}
+                      {t("nav.ballieForYou", "Ballie For You")}
                     </NavLink>
                     <NavLink
                       to="/business-benefits"
-                      onClick={() => setOpen(false)}
+                      onClick={handleNavClick}
                       className={({ isActive }) =>
                         `flex-1 text-center px-3 py-1.5 rounded-full text-sm transition ${
                           isActive
@@ -235,52 +275,160 @@ const Navbar = () => {
                         }`
                       }
                     >
-                      {t("nav.ballieForBusiness")}
+                      {t("nav.ballieForBusiness", "Ballie For Business")}
                     </NavLink>
                   </div>
 
-                  {/* Simple list of links */}
-                  <ul className="space-y-2">
-                    <li>
-                      <NavLink
-                        to="/football-map"
-                        onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                          `block px-3 py-2 rounded-md text-base font-medium transition ${
-                            isActive
-                              ? "text-accent"
-                              : "text-gray-200 hover:text-accent"
-                          }`
-                        }
-                      >
-                        {t("nav.ballieMaps")}
-                      </NavLink>
-                    </li>
-                    <li>
-                      <NavLink
-                        to="/blogs-news"
-                        onClick={() => setOpen(false)}
-                        className={({ isActive }) =>
-                          `block px-3 py-2 rounded-md text-base font-medium transition ${
-                            isActive
-                              ? "text-accent"
-                              : "text-gray-200 hover:text-accent"
-                          }`
-                        }
-                      >
-                        {t("nav.blogNews")}
-                      </NavLink>
-                    </li>
-                  </ul>
+                  {/* Main sections: cards */}
+                  <div className="space-y-3">
+                    <NavLink
+                      to="/"
+                      end
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.ballieForYou", "Ballie For You")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t(
+                          "nav.ballieForYouDesc",
+                          "Where football brings people together"
+                        )}
+                      </p>
+                    </NavLink>
 
-                  {/* Single Download button at bottom */}
-                  <div className="mt-6 mb-4">
+                    <NavLink
+                      to="/business-benefits"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.ballieForBusiness", "Ballie For Business")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t(
+                          "nav.ballieForBusinessDesc",
+                          "Where football fills your venue"
+                        )}
+                      </p>
+                    </NavLink>
+
+                    <NavLink
+                      to="/blogs-news"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.ballieCoins", "Ballie Coins")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t(
+                          "nav.ballieCoinsDesc",
+                          "Earn. Personalise. Experience."
+                        )}
+                      </p>
+                    </NavLink>
+
+                    <NavLink
+                      to="/football-map"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.footballMap", "FootballMaps")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t("nav.footballMapDesc", "Find where football lives")}
+                      </p>
+                    </NavLink>
+
+                    <NavLink
+                      to="/football-map"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.liveScores", "Live Scores")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t("nav.liveScoresDesc", "Stay in the game")}
+                      </p>
+                    </NavLink>
+
+                    <NavLink
+                      to="/blogs-news"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-white"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.blogsNews", "Blogs & News")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t(
+                          "nav.blogsNewsDesc",
+                          "Stories, updates & highlights"
+                        )}
+                      </p>
+                    </NavLink>
+                  </div>
+
+                  {/* Download button at bottom */}
+                  <div className="pt-3 pb-4">
                     <a
                       href="#"
                       className="w-full inline-flex items-center justify-center bg-accent text-black font-medium text-sm px-4 py-2 rounded-lg gap-2 hover:bg-accent/90 transition"
-                      onClick={() => setOpen(false)}
+                      onClick={handleNavClick}
                     >
-                      {t("nav.download")} <ArrowRight size={16} />
+                      {t("nav.download", "Download")} <ArrowRight size={16} />
                     </a>
                   </div>
                 </nav>

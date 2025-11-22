@@ -16,35 +16,42 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-black text-white mt-20 px-6 py-12 border-t border-white/5">
-      <div className="max-w-6xl mx-auto space-y-10">
+    <footer className="bg-black text-white mt-16 sm:mt-20 px-4 sm:px-6 lg:px-10 xl:px-0 py-10 sm:py-12 lg:py-16 border-t border-white/5">
+      <div className="max-w-6xl lg:max-w-7xl mx-auto space-y-10 sm:space-y-12 lg:space-y-16">
         {/* Advertising Sign-up */}
         <section
           id="advertise"
-          className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+          className="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-6 lg:gap-10"
           aria-label="Advertising Sign-up"
         >
-          <div className="md:w-2/3">
-            <h3 className="text-2xl md:text-3xl font-bold text-accent">{t("footer.advertise.title")}</h3>
-            <p className="mt-3 text-sm text-gray-300 max-w-2xl">{t("footer.advertise.desc")}</p>
+          <div className="md:w-2/3 space-y-3 text-center md:text-left">
+            <h3 className="text-2xl sm:text-3xl md:text-[32px] font-bold text-accent leading-tight">
+              {t("footer.advertise.title")}
+            </h3>
+            <p className="text-xs sm:text-sm text-gray-300 max-w-2xl mx-auto md:mx-0">
+              {t("footer.advertise.desc")}
+            </p>
           </div>
-          <div className="md:w-1/3 w-full flex justify-end">
+
+          <div className="md:w-1/3 w-full flex justify-center md:justify-end">
             <form
-              className="flex items-stretch gap-0 w-full max-w-md"
+              className="flex flex-col sm:flex-row items-stretch gap-2 sm:gap-0 w-full max-w-md"
               aria-label="Advertise signup form"
               onSubmit={(e) => e.preventDefault()}
             >
-              <label htmlFor="ad-email" className="sr-only">{t("footer.form.emailLabel")}</label>
+              <label htmlFor="ad-email" className="sr-only">
+                {t("footer.form.emailLabel")}
+              </label>
               <input
                 id="ad-email"
                 type="email"
                 required
                 placeholder={t("footer.form.emailPlaceholder")}
-                className="px-4 py-2 rounded-l-full border border-white/10 text-sm flex-1 outline-none bg-[#0f0f0f] text-white placeholder:text-gray-400"
+                className="px-4 py-2.5 rounded-full sm:rounded-l-full sm:rounded-r-none border border-white/10 text-sm flex-1 outline-none bg-[#0f0f0f] text-white placeholder:text-gray-400"
               />
               <button
                 type="submit"
-                className="bg-accent text-black px-4 py-2 rounded-r-full text-sm font-medium hover:bg-accent/90 transition"
+                className="bg-accent text-black px-4 py-2.5 rounded-full sm:rounded-l-none sm:rounded-r-full text-sm font-medium hover:bg-accent/90 transition w-full sm:w-auto"
               >
                 {t("footer.form.submit")}
               </button>
@@ -53,32 +60,50 @@ const Footer = () => {
         </section>
 
         {/* Main grid: Left nav list, Right contact + badges */}
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <section className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
           {/* Left big nav list */}
-          <nav aria-label="Primary footer navigation" className="space-y-4">
-            <ul className="space-y-3 font-extrabold tracking-wide">
+          <nav
+            aria-label="Primary footer navigation"
+            className="space-y-4 text-center md:text-left"
+          >
+            <ul className="space-y-2 sm:space-y-3 font-extrabold tracking-wide">
               <li>
-                <Link to="/" className="text-3xl md:text-4xl hover:text-accent transition-colors">
+                <Link
+                  to="/"
+                  className="text-2xl sm:text-3xl md:text-4xl hover:text-accent transition-colors"
+                >
                   {t("footer.menu.home")}
                 </Link>
               </li>
               <li>
-                <a href="#advertise" className="text-3xl md:text-4xl hover:text-accent transition-colors">
+                <a
+                  href="#advertise"
+                  className="text-2xl sm:text-3xl md:text-4xl hover:text-accent transition-colors"
+                >
                   {t("footer.menu.advertise")}
                 </a>
               </li>
               <li>
-                <Link to="/business-benefits" className="text-3xl md:text-4xl hover:text-accent transition-colors">
+                <Link
+                  to="/business-benefits"
+                  className="text-2xl sm:text-3xl md:text-4xl hover:text-accent transition-colors"
+                >
                   {t("footer.menu.cases")}
                 </Link>
               </li>
               <li>
-                <a href="#" className="text-3xl md:text-4xl hover:text-accent transition-colors">
+                <a
+                  href="#"
+                  className="text-2xl sm:text-3xl md:text-4xl hover:text-accent transition-colors"
+                >
                   {t("footer.menu.careers")}
                 </a>
               </li>
               <li>
-                <a href="#app" className="text-3xl md:text-4xl hover:text-accent transition-colors">
+                <a
+                  href="#app"
+                  className="text-2xl sm:text-3xl md:text-4xl hover:text-accent transition-colors"
+                >
                   {t("footer.menu.app")}
                 </a>
               </li>
@@ -87,31 +112,53 @@ const Footer = () => {
 
           {/* Right column: Contact + Download badges */}
           <div className="flex flex-col gap-6 md:items-end">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:text-right">
-              <div className="text-gray-300 text-sm">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 md:text-right text-center md:text-right">
+              <div className="text-gray-300 text-xs sm:text-sm space-y-0.5">
                 <p>Johan Huizingalaan 763A</p>
                 <p>1066VH Amsterdam</p>
               </div>
-              <div className="text-gray-300 text-sm">
+              <div className="text-gray-300 text-xs sm:text-sm">
                 <p>partnerships@ballie.app</p>
               </div>
             </div>
 
-            <div className="space-y-3">
-              <p className="text-sm font-semibold">{t("footer.download.title")}</p>
-              <div className="flex items-center gap-3">
-                <a className="px-3 py-2 bg-white text-black flex items-center text-sm gap-2 rounded-md hover:opacity-90 transition">
-                  <img src={APPLE_STORE_BADGE} alt="App Store" className="h-6 w-6 invert" loading="lazy" decoding="async" />
-                  <div className="leading-tight">
-                    <p className="text-[10px] text-gray-600">{t("footer.download.on")}</p>
-                    <p className="text-sm font-medium">{t("footer.download.appStore")}</p>
+            <div className="space-y-3 md:text-right text-center">
+              <p className="text-xs sm:text-sm font-semibold">
+                {t("footer.download.title")}
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-end items-center gap-3">
+                <a className="px-3 sm:px-4 py-2 bg-white text-black flex items-center text-xs sm:text-sm gap-2 rounded-md hover:opacity-90 transition">
+                  <img
+                    src={APPLE_STORE_BADGE}
+                    alt="App Store"
+                    className="h-6 w-6 invert"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="leading-tight text-left">
+                    <p className="text-[9px] sm:text-[10px] text-gray-600">
+                      {t("footer.download.on")}
+                    </p>
+                    <p className="text-xs sm:text-sm font-medium">
+                      {t("footer.download.appStore")}
+                    </p>
                   </div>
                 </a>
-                <a className="px-3 py-2 bg-white text-black flex items-center text-sm gap-2 rounded-md hover:opacity-90 transition">
-                  <img src={GOOGLE_PLAY_BADGE} alt="Google Play" className="h-6 w-6" loading="lazy" decoding="async" />
-                  <div className="leading-tight">
-                    <p className="text-[10px] text-gray-600">{t("footer.download.getItOn")}</p>
-                    <p className="text-sm font-medium">{t("footer.download.googlePlay")}</p>
+                <a className="px-3 sm:px-4 py-2 bg-white text-black flex items-center text-xs sm:text-sm gap-2 rounded-md hover:opacity-90 transition">
+                  <img
+                    src={GOOGLE_PLAY_BADGE}
+                    alt="Google Play"
+                    className="h-6 w-6"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                  <div className="leading-tight text-left">
+                    <p className="text-[9px] sm:text-[10px] text-gray-600">
+                      {t("footer.download.getItOn")}
+                    </p>
+                    <p className="text-xs sm:text-sm font-medium">
+                      {t("footer.download.googlePlay")}
+                    </p>
                   </div>
                 </a>
               </div>
@@ -120,13 +167,19 @@ const Footer = () => {
         </section>
 
         {/* Social icons row */}
-        <section className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+        <section className="grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-md md:max-w-none mx-auto md:mx-0">
           {SOCIAL_ICONS.map((src, idx) => (
             <div
               key={idx}
-              className="bg-[#1d1d1d] rounded-2xl p-8 flex items-center justify-center hover:bg-[#272727] transition"
+              className="bg-[#1d1d1d] rounded-2xl p-4 sm:p-6 md:p-8 flex items-center justify-center hover:bg-[#272727] transition"
             >
-              <img src={src} alt="social" className="h-7 w-auto" loading="lazy" decoding="async" />
+              <img
+                src={src}
+                alt="social"
+                className="h-5 sm:h-6 md:h-7 w-auto"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
           ))}
         </section>
@@ -134,23 +187,38 @@ const Footer = () => {
         <hr className="border-white/10" />
 
         {/* Bottom bar */}
-        <section className="flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-gray-300">
-          <p>{t("footer.rights", { year })}</p>
-          <nav aria-label="Legal" className="flex items-center gap-4">
-            <Link to="/terms" className="hover:text-accent transition-colors">
+        <section className="flex flex-col md:flex-row items-center justify-between gap-3 md:gap-4 text-xs sm:text-sm text-gray-300 text-center md:text-left">
+          <p className="order-2 md:order-1">
+            {t("footer.rights", { year })}
+          </p>
+
+          <nav
+            aria-label="Legal"
+            className="flex items-center justify-center gap-3 sm:gap-4 order-3 md:order-2"
+          >
+            <Link
+              to="/terms"
+              className="hover:text-accent transition-colors"
+            >
               {t("footer.legal.terms")}
             </Link>
-            <Link to="/blogs-news" className="hover:text-accent transition-colors">
+            <Link
+              to="/blogs-news"
+              className="hover:text-accent transition-colors"
+            >
               {t("footer.legal.blog")}
             </Link>
           </nav>
-          <img
-            src="/images/logoTransparent.png"
-            alt="Ballie logo"
-            className="h-10 md:h-12 lg:h-14 w-auto opacity-100 drop-shadow-[0_6px_18px_rgba(163,255,0,0.25)]"
-            loading="lazy"
-            decoding="async"
-          />
+
+          <div className="order-1 md:order-3 mb-2 md:mb-0">
+            <img
+              src="/images/logoTransparent.png"
+              alt="Ballie logo"
+              className="h-9 sm:h-10 md:h-12 lg:h-14 w-auto opacity-100 drop-shadow-[0_6px_18px_rgba(163,255,0,0.25)]"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
         </section>
       </div>
     </footer>
@@ -158,4 +226,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

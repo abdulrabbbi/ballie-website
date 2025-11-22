@@ -4,16 +4,25 @@ import { FOLLOW_LEFT_PLAYER, FOLLOW_RIGHT_PLAYER } from "../../images";
 
 const FollowClubCTA = () => {
   const { t } = useTranslation();
+
   return (
     <section className="relative w-full bg-black py-10 sm:py-12 md:py-16">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Lime banner acts as the anchor for the side players */}
         <div className="relative mx-auto max-w-5xl rounded-[28px] bg-lime-400 px-5 py-7 sm:px-10 sm:py-9 md:px-14 md:py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-          {/* Players hugging the card edges */}
+          {/* Players hugging the card edges, perfectly aligned */}
           <img
             src={FOLLOW_LEFT_PLAYER}
             alt="Player left"
-            className="pointer-events-none select-none absolute -left-5 sm:-left-6 md:-left-8 bottom-[-10px] sm:bottom-[-14px] md:bottom-[-18px] h-[160px] sm:h-[210px] md:h-[260px] lg:h-[300px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] z-0"
+            className="
+              pointer-events-none select-none
+              absolute left-0 -translate-x-1/2
+              bottom-[-18px] sm:bottom-[-22px] md:bottom-[-26px]
+              h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]
+              object-contain
+              drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]
+              z-10
+            "
             aria-hidden="true"
             loading="lazy"
             decoding="async"
@@ -21,7 +30,15 @@ const FollowClubCTA = () => {
           <img
             src={FOLLOW_RIGHT_PLAYER}
             alt="Player right"
-            className="pointer-events-none select-none absolute -right-5 sm:-right-6 md:-right-8 bottom-[-10px] sm:bottom-[-14px] md:bottom-[-18px] h-[170px] sm:h-[220px] md:h-[270px] lg:h-[310px] object-contain drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)] z-0"
+            className="
+              pointer-events-none select-none
+              absolute right-0 translate-x-1/2
+              bottom-[-18px] sm:bottom-[-22px] md:bottom-[-26px]
+              h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]
+              object-contain
+              drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]
+              z-10
+            "
             aria-hidden="true"
             loading="lazy"
             decoding="async"
@@ -42,12 +59,18 @@ const FollowClubCTA = () => {
             }}
           />
 
-          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold">{t("follow.heading1")}</h3>
-          <h3 className="relative z-10 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold -mt-1">{t("follow.heading2")}</h3>
+          <h3 className="relative z-20 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold">
+            {t("follow.heading1")}
+          </h3>
+          <h3 className="relative z-20 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold -mt-1">
+            {t("follow.heading2")}
+          </h3>
 
-          <p className="relative z-10 mx-auto mt-3 max-w-3xl text-[13px] sm:text-sm leading-relaxed text-black/75">{t("follow.desc")}</p>
+          <p className="relative z-20 mx-auto mt-3 max-w-3xl text-[13px] sm:text-sm leading-relaxed text-black/75">
+            {t("follow.desc")}
+          </p>
 
-          <button className="relative z-10 mt-5 inline-flex items-center justify-center rounded-md bg-black px-5 py-2 text-xs sm:text-sm font-medium text-white transition hover:bg-black/90">
+          <button className="relative z-20 mt-5 inline-flex items-center justify-center rounded-md bg-black px-5 py-2 text-xs sm:text-sm font-medium text-white transition hover:bg-black/90">
             {t("cta.downloadApp")}
           </button>
         </div>

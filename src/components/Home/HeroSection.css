@@ -1,0 +1,240 @@
+/* Animations + responsive helpers */
+@supports (height: 100svh) {
+  .hero-shell > div > .grid {
+    min-height: 100svh;
+  }
+}
+
+/* Keyframes */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Base state */
+[data-animate] { opacity: 0; }
+.animate-in { opacity: 1; }
+
+/* Types */
+[data-animate][data-anim-type="fade-up"].animate-in {
+  animation: fadeUp 500ms cubic-bezier(.2,.8,.2,1) both;
+}
+[data-animate][data-anim-type="fade-in"].animate-in {
+  animation: fadeIn 500ms ease-out both;
+}
+[data-animate][data-anim-type="scale-in"].animate-in {
+  animation: scaleIn 520ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+/* Optional delays */
+[data-animate][data-anim-delay="100"].animate-in { animation-delay: 100ms; }
+[data-animate][data-anim-delay="200"].animate-in { animation-delay: 200ms; }
+[data-animate][data-anim-delay="300"].animate-in { animation-delay: 300ms; }
+
+/* Card panel shards (background squares like your design) */
+.hero-panel-shard {
+  position: absolute;
+  width: 86px;
+  height: 86px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 30% 0%, rgba(16,185,129,0.7), transparent 60%),
+    linear-gradient(135deg, #021312 0%, #05241d 100%);
+  box-shadow: 0 0 28px rgba(16,185,129,0.55);
+  opacity: 0.65;
+  overflow: hidden;
+}
+
+.hero-panel-shard::before {
+  content: "";
+  position: absolute;
+  inset: -10%;
+  background:
+    conic-gradient(from 140deg, rgba(0,0,0,0.9) 0deg, rgba(0,0,0,0.1) 70deg, rgba(0,0,0,0.9) 140deg, rgba(0,0,0,0.1) 210deg, rgba(0,0,0,0.9) 320deg);
+  mix-blend-mode: multiply;
+}
+
+.hero-panel-shard--tl { left: 8%; top: 18%; }
+.hero-panel-shard--tr { right: 8%; top: 26%; }
+.hero-panel-shard--bl { left: 5%; bottom: 14%; }
+.hero-panel-shard--br { right: 10%; bottom: 20%; }
+
+@media (prefers-reduced-motion: no-preference) {
+  @media (min-width: 1024px) {
+    .hero-panel-shard--tl { animation: shardFloat1 22s ease-in-out infinite alternate; }
+    .hero-panel-shard--tr { animation: shardFloat2 24s ease-in-out infinite alternate; }
+    .hero-panel-shard--bl { animation: shardFloat3 26s ease-in-out infinite alternate; }
+    .hero-panel-shard--br { animation: shardFloat4 28s ease-in-out infinite alternate; }
+  }
+}
+
+@keyframes shardFloat1 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-10px,8px,0); }
+}
+@keyframes shardFloat2 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(12px,-6px,0); }
+}
+@keyframes shardFloat3 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(-8px,-10px,0); }
+}
+@keyframes shardFloat4 {
+  from { transform: translate3d(0,0,0); }
+  to   { transform: translate3d(10px,6px,0); }
+}
+
+/* Card styling (main image) */
+.hero-card {
+  position: absolute;
+  inset: 0;
+  border-radius: 1.8rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate3d(0, 26px, 0) scale(.96);
+  filter: blur(1px);
+  transition:
+    transform 900ms cubic-bezier(.22,.8,.35,1),
+    opacity 900ms cubic-bezier(.22,.8,.35,1),
+    filter 900ms ease-out,
+    box-shadow 900ms ease-out;
+  will-change: transform, opacity, filter;
+}
+
+.hero-card-inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top left, rgba(18, 48, 27, 0.3), rgba(15,23,42,1));
+  border: 1px solid rgba(148, 227, 202, 0.8);
+  box-shadow:
+    0 28px 80px rgba(0,0,0,0.9),
+    0 0 40px rgba(16,185,129,0.6);
+}
+
+.hero-card-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.03);
+}
+
+.hero-card-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(0,0,0,0.85), transparent 45%),
+    radial-gradient(circle at 10% 0%, rgba(16,185,129,0.55), transparent 55%);
+  mix-blend-mode: soft-light;
+}
+
+.hero-card[data-state="active"] {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.hero-card[data-state="prev"] {
+  opacity: 0;
+  filter: blur(1.2px);
+  transform: translate3d(0, 32px, 0) scale(.94);
+}
+
+.hero-card[data-state="idle"] {
+  opacity: 0;
+  filter: blur(1.4px);
+  transform: translate3d(0, 40px, 0) scale(.9);
+}
+
+/* HUD at bottom of card */
+.hero-card-meta {
+  position: absolute;
+  inset-inline: 1.3rem;
+  bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  z-index: 2;
+}
+
+.hero-card-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .35rem .9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(45,212,191,0.9);
+  background: radial-gradient(circle at 0% 0%, rgba(16,185,129,0.7), rgba(6,12,20,0.92));
+  backdrop-filter: blur(10px);
+}
+
+.hero-card-pill-dot {
+  width: .45rem;
+  height: .45rem;
+  border-radius: 999px;
+  background: #22c55e;
+  box-shadow: 0 0 12px rgba(34,197,94,1);
+}
+
+.hero-card-pill-text {
+  font-size: .7rem;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #ecfdf5;
+}
+
+.hero-card-score {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .4rem .9rem;
+  border-radius: 999px;
+  background: rgba(3,7,18,0.9);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(148,163,184,0.55);
+}
+
+.hero-card-team {
+  font-size: .75rem;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+.hero-card-team--home {
+  color: #bbf7d0;
+}
+
+.hero-card-score-value {
+  font-feature-settings: "tnum" on, "lnum" on;
+  font-size: .95rem;
+  font-weight: 800;
+  color: #f9fafb;
+}
+
+/* Short viewport handling */
+@media (max-height: 700px) {
+  .hero-shell .grid { padding-top: 2rem !important; padding-bottom: 2rem !important; }
+  .hero-right { display: none !important; }
+}
+
+/* Respect reduced motion explicitly */
+@media (prefers-reduced-motion: reduce) {
+  .motion-safe\:hover\:translate-y-0\.5:hover { transform: none !important; }
+  .active\:translate-y-\[1px\]:active { transform: none !important; }
+}

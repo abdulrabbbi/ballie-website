@@ -1,17 +1,18 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
 import { HERO_BG } from "../../images";
+import "./HeroSection.css";
 
-/**
- * Responsive upgrades:
- * - Uses min-h with svh fallback for better mobile viewport sizing.
- * - Title uses clamp() on 2xl screens, avoiding giant headings on ultrawides.
- * - Grid rebalances at xl/2xl; image panel scales but never dominates text.
- * - Stats: 2 cols (xs), 3 cols (md), 4 cols (xl+).
- * - Short viewport handling (≤700px height): tighter paddings, hide right image.
- * - Safe-area top padding for notches.
- */
+const CARD_INTERVAL = 3200; // ~5.2s between images
+
+// For now: random football action shots (replace with your own CDN later)
+const FOOTBALL_IMAGES = [
+  "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=1600",
+  "https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1600",
+];
 
 const PrimaryCta = ({ children, className = "", ...props }) => (
   <a
@@ -52,6 +53,9 @@ const SecondaryCta = ({ children, className = "", ...props }) => (
 
 const HeroSection = () => {
   const rootRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null);
+  const { t } = useTranslation();
 
   // Reveal-on-scroll (motion-safe)
   useEffect(() => {
@@ -81,7 +85,27 @@ const HeroSection = () => {
     return () => io.disconnect();
   }, []);
 
-  const { t } = useTranslation();
+  // Looping card animation (right side)
+  useEffect(() => {
+    const prefersReduced =
+      typeof window !== "undefined" &&
+      window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReduced || FOOTBALL_IMAGES.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setActiveIndex((current) => {
+        const next = (current + 1) % FOOTBALL_IMAGES.length;
+        setPrevIndex(current);
+        return next;
+      });
+    }, CARD_INTERVAL);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const total = FOOTBALL_IMAGES.length;
+
   return (
     <section
       ref={rootRef}
@@ -90,14 +114,14 @@ const HeroSection = () => {
     >
       {/* Background (decorative) */}
       <div aria-hidden className="absolute inset-0">
-        <img
+        {/* <img
           src={HERO_BG}
           alt=""
           role="presentation"
           className="h-full w-full object-cover object-center lg:object-right"
           loading="eager"
           fetchPriority="high"
-        />
+        /> */}
         <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/60 to-black/10" />
       </div>
 
@@ -105,14 +129,12 @@ const HeroSection = () => {
         {/* Grid:
             - 1 col on mobile
             - 12-col on lg+
-            - rebalance spans at xl/2xl to keep text line-length healthy
         */}
         <div
           className={[
             "grid items-center gap-8 sm:gap-10",
             "py-14 sm:py-20 lg:py-28",
             "grid-cols-1 lg:grid-cols-12",
-            // height: use svh if supported (applied in <style> below)
             "min-h-screen lg:min-h-[80vh]",
           ].join(" ")}
         >
@@ -130,7 +152,7 @@ const HeroSection = () => {
                 </span>
               </div>
 
-              {/* Title with clamp at 2xl to avoid over-scaling */}
+              {/* Title */}
               <h1
                 id="hero-title"
                 className="text-balance  font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
@@ -158,7 +180,7 @@ const HeroSection = () => {
                 </SecondaryCta>
               </div>
 
-              {/* Stats: 2 / 3 / 4 columns by breakpoint */}
+              {/* Stats */}
               <dl
                 className="mt-9 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
                 data-animate
@@ -187,7 +209,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right: image panel (hidden on short viewports) */}
+          {/* Right: animated card panel (like your screenshot) */}
           <div
             className="hero-right hidden lg:col-span-5 lg:block xl:col-span-6 2xl:col-span-6"
             data-animate
@@ -196,92 +218,76 @@ const HeroSection = () => {
           >
             <div
               aria-hidden
-              className="relative w-full overflow-hidden rounded-3xl ring-1 ring-white/10"
             >
-              {/* Aspect shifts with screen to avoid awkward crops */}
-              <div className="relative aspect-[5/6] xl:aspect-[4/5] 2xl:aspect-[16/10]">
-                <img
-                  src={HERO_BG}
-                  alt=""
-                  role="presentation"
-                  className="absolute inset-0 h-full w-full object-cover object-center motion-safe:will-change-transform parallax-img"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/0 via-black/0 to-black/40" />
+              {/* Panel area */}
+              <div className="relative aspect-[5/6] xl:aspect-[4/5] 2xl:aspect-[16/10] flex items-center justify-center">
+                {/* Background shards behind card */}
+                <div className="pointer-events-none absolute inset-0">
+                  <div className="hero-panel-shard hero-panel-shard--tl" />
+                  <div className="hero-panel-shard hero-panel-shard--tr" />
+                  <div className="hero-panel-shard hero-panel-shard--bl" />
+                  <div className="hero-panel-shard hero-panel-shard--br" />
+                </div>
+
+                {/* Card stack */}
+                <div className="relative w-[82%] max-w-md aspect-[3/4]">
+                  {FOOTBALL_IMAGES.map((src, index) => {
+                    const isActive = index === activeIndex;
+                    const isPrev = index === prevIndex;
+
+                    let state = "idle";
+                    if (isActive) state = "active";
+                    else if (isPrev) state = "prev";
+
+                    return (
+                      <div
+                        key={src}
+                        className="hero-card"
+                        data-state={state}
+                        style={{
+                          zIndex: isActive ? 30 : isPrev ? 20 : 10,
+                        }}
+                      >
+                        <div className="hero-card-inner">
+                          <img
+                            src={src}
+                            alt="Football action"
+                            className="hero-card-img"
+                            loading={index === 0 ? "eager" : "lazy"}
+                          />
+                          <div className="hero-card-overlay" />
+
+                          {/* HUD at bottom (LIVE + score) */}
+                          <div className="hero-card-meta">
+                            <div className="hero-card-pill">
+                              <span className="hero-card-pill-dot" />
+                              <span className="hero-card-pill-text">
+                                LIVE • PREMIER NIGHT
+                              </span>
+                            </div>
+                            <div className="hero-card-score">
+                              <span className="hero-card-team hero-card-team--home">
+                                BLX
+                              </span>
+                              <span className="hero-card-score-value">
+                                3 : 2
+                              </span>
+                              <span className="hero-card-team hero-card-team--away">
+                                CTY
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Animations + responsive helpers */}
-      <style>
-        {`
-          /* Prefer svh for mobile address bar behaviors if supported */
-          @supports (height: 100svh) {
-            .hero-shell > div > .grid { min-height: 100svh; }
-          }
-
-          /* Keyframes */
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(12px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          @keyframes scaleIn {
-            from { opacity: 0; transform: scale(.96); }
-            to { opacity: 1; transform: scale(1); }
-          }
-
-          /* Base state */
-          [data-animate] { opacity: 0; }
-          .animate-in { opacity: 1; }
-
-          /* Types */
-          [data-animate][data-anim-type="fade-up"].animate-in {
-            animation: fadeUp 500ms cubic-bezier(.2,.8,.2,1) both;
-          }
-          [data-animate][data-anim-type="fade-in"].animate-in {
-            animation: fadeIn 500ms ease-out both;
-          }
-          [data-animate][data-anim-type="scale-in"].animate-in {
-            animation: scaleIn 520ms cubic-bezier(.2,.8,.2,1) both;
-          }
-
-          /* Optional delays */
-          [data-animate][data-anim-delay="100"].animate-in { animation-delay: 100ms; }
-          [data-animate][data-anim-delay="200"].animate-in { animation-delay: 200ms; }
-          [data-animate][data-anim-delay="300"].animate-in { animation-delay: 300ms; }
-
-          /* Subtle parallax on desktop, motion-safe */
-          @media (prefers-reduced-motion: no-preference) {
-            .parallax-img { transform: translateY(0); }
-            @media (min-width: 1024px) {
-              :root:has(body) .parallax-img {
-                animation: parallaxY 12s linear infinite alternate;
-              }
-              @keyframes parallaxY {
-                from { transform: translateY(-3%); }
-                to   { transform: translateY(3%); }
-              }
-            }
-          }
-
-          /* Short viewport handling (e.g., landscape phones / small laptop windows) */
-          @media (max-height: 700px) {
-            .hero-shell .grid { padding-top: 2rem !important; padding-bottom: 2rem !important; }
-            .hero-right { display: none !important; }
-          }
-
-          /* Respect reduced motion explicitly */
-          @media (prefers-reduced-motion: reduce) {
-            .motion-safe\\:hover\\:translate-y-0\\.5:hover { transform: none !important; }
-            .active\\:translate-y-\\[1px\\]:active { transform: none !important; }
-          }
-        `}
-      </style>
     </section>
   );
 };
