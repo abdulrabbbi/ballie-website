@@ -4,106 +4,58 @@ import Card from "./Card";
 export default function CardGrid() {
   const cards = [
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1517927033932-b3d18e61fb3a?auto=format&fit=crop&w=1200&q=80",
+      title: "Ballie For You",
+      description:
+        "Where football brings people together. Born from a passion for the game, Ballie Live helps you find live matches, discover places to watch with friends and feel stadium energy wherever you are.",
+      link: "/blogs/ballie-for-you",
     },
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=80",
+      title: "Ballie For Business",
+      description:
+        "Where football fills your venue. With a free Ballie Live Business account, your bar, café or sports venue becomes visible to thousands of fans looking for the perfect spot to cheer together.",
+      link: "/blogs/ballie-for-business",
     },
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1523287562758-66c7fc58967a?auto=format&fit=crop&w=1200&q=80",
+      title: "Ballie Coins",
+      description:
+        "Earn. Personalise. Experience. Collect Ballie Coins via daily logins, sharing on socials or inviting friends – then use them to personalise your profile, unlock discounts and enjoy upcoming Ballie Live Game extras.",
+      link: "/blogs/ballie-coins",
     },
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1526779259212-939e64788e3c?auto=format&fit=crop&w=1200&q=80",
+      title: "FootballMaps",
+      description:
+        "Find where football lives. Discover nearby bars, cafés and venues showing live football – from local derbies to international clashes – and choose the perfect place to watch.",
+      link: "/blogs/football-maps",
     },
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1516478177764-9fe5bdc5aff3?auto=format&fit=crop&w=1200&q=80",
+      title: "Live Scores",
+      description:
+        "Stay in the game. Follow matches in real time, see instantly who scores or takes the lead and stay connected to every moment – wherever you are.",
+      link: "/blogs/live-scores",
     },
     {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
-    },
-    {
-      image: "https://images.unsplash.com/photo-1521412644187-c49fa049e84d",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      description: "Lorem ipsum dolor sit amet consectetur.",
-      link: "#",
+      image:
+        "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=80",
+      title: "Blogs & News",
+      description:
+        "Stories, updates & highlights. Read about new Ballie Live features, fan stories, venue spotlights and tips to get the most out of your football experience.",
+      link: "/blogs/news",
     },
   ];
 
   return (
-    <section className="flex justify-center items-center bg-black min-h-screen">
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 p-6">
+    <section className="bg-black min-h-screen flex justify-center items-center">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-6">
         {cards.map((card, index) => (
           <Card
             key={index}

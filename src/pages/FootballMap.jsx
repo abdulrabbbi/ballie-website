@@ -1,7 +1,6 @@
 import React from "react";
 import HeroSection from "../components/BlogsNews/HeroSection";
 import MapCard from "../components/FootballMap/MapCard";
-import BallieCoinsSection from "../components/FootballMap/BallieCoinsSection";
 import { useTranslation } from "react-i18next";
 
 const FootballMap = () => {
@@ -20,7 +19,6 @@ const FootballMap = () => {
         secondaryCta={t("cta.learnMore")}
       />
       <MapCard />
-      <BallieCoinsSection />
     </div>
   );
 };

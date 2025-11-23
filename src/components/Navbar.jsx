@@ -21,13 +21,17 @@ const Navbar = () => {
       path: "/football-map",
     },
     {
+      key: "ballieCoins",
+      name: t("nav.ballieCoins", "Ballie Coins"),
+      path: "/ballie-coins",
+    },
+    {
       key: "blogsNews",
       name: t("nav.blogsNews", "Blogs & News"),
       path: "/blogs-news",
     },
   ];
 
-  // For desktop secondary links (non-tabs)
   const navSecondary = navItems.filter(
     (i) => i.path !== "/" && i.path !== "/business-benefits"
   );
@@ -37,7 +41,6 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const lastY = useRef(0);
 
-  // Hide-on-scroll behavior with rAF throttling
   useEffect(() => {
     lastY.current = window.scrollY;
     let ticking = false;
@@ -64,7 +67,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when drawer is open on mobile/tablet
   useEffect(() => {
     if (!open) return;
 
@@ -78,7 +80,6 @@ const Navbar = () => {
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
 
-    // Ensure navbar not hidden while menu is open
     setHiddenOnScroll(false);
 
     return () => {
@@ -87,7 +88,6 @@ const Navbar = () => {
     };
   }, [open]);
 
-  // Close on ESC
   useEffect(() => {
     if (!open) return;
     const onKey = (e) => {
@@ -97,7 +97,6 @@ const Navbar = () => {
     return () => document.removeEventListener("keydown", onKey);
   }, [open]);
 
-  // Helper for closing menu on nav click
   const handleNavClick = () => {
     setOpen(false);
   };
@@ -179,7 +178,6 @@ const Navbar = () => {
             ))}
 
             <div className="flex items-center gap-4">
-              {/* Desktop language switcher */}
               <LanguageSwitcher />
               <a
                 href="#"
@@ -279,59 +277,10 @@ const Navbar = () => {
                     </NavLink>
                   </div>
 
-                  {/* Main sections: cards */}
+                  {/* Main sections: ONLY 4 cards now */}
                   <div className="space-y-3">
                     <NavLink
-                      to="/"
-                      end
-                      onClick={handleNavClick}
-                      className={({ isActive }) =>
-                        [
-                          "block rounded-2xl px-3 py-2.5 border transition",
-                          "bg-white/0 hover:bg-white/5",
-                          isActive
-                            ? "border-accent bg-accent/10 text-white"
-                            : "border-white/10 text-gray-100",
-                        ].join(" ")
-                      }
-                    >
-                      <p className="text-sm font-semibold">
-                        {t("nav.ballieForYou", "Ballie For You")}
-                      </p>
-                      <p className="mt-0.5 text-xs text-gray-300">
-                        {t(
-                          "nav.ballieForYouDesc",
-                          "Where football brings people together"
-                        )}
-                      </p>
-                    </NavLink>
-
-                    <NavLink
-                      to="/business-benefits"
-                      onClick={handleNavClick}
-                      className={({ isActive }) =>
-                        [
-                          "block rounded-2xl px-3 py-2.5 border transition",
-                          "bg-white/0 hover:bg-white/5",
-                          isActive
-                            ? "border-accent bg-accent/10 text-white"
-                            : "border-white/10 text-gray-100",
-                        ].join(" ")
-                      }
-                    >
-                      <p className="text-sm font-semibold">
-                        {t("nav.ballieForBusiness", "Ballie For Business")}
-                      </p>
-                      <p className="mt-0.5 text-xs text-gray-300">
-                        {t(
-                          "nav.ballieForBusinessDesc",
-                          "Where football fills your venue"
-                        )}
-                      </p>
-                    </NavLink>
-
-                    <NavLink
-                      to="/blogs-news"
+                      to="/ballie-coins"
                       onClick={handleNavClick}
                       className={({ isActive }) =>
                         [

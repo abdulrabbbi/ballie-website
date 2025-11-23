@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import RouteFallback from "../components/RouteFallback";
 import RouteErrorBoundary from "../components/RouteErrorBoundary";
+import BallieCoinsSection from "../components/FootballMap/BallieCoinsSection";
+
 
 // Route-level code splitting
 // Eager import Layout to avoid dynamic import fetch issues in dev
@@ -33,6 +35,10 @@ const AppRoutes = () => {
           <Route
             path="football-map"
             element={withBoundaryAndSuspense(<FootballMap />)}
+          />
+          <Route
+            path="ballie-coins"
+            element={withBoundaryAndSuspense(<BallieCoinsSection />)}
           />
           <Route
             path="blogs-news"
