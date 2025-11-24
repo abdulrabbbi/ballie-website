@@ -3,10 +3,11 @@
 @theme {
   /* Brand accent to exactly match the provided green */
   --color-accent: #A3FF00;
+  --font-sans: "Archivo", system-ui, -apple-system, "BlinkMacSystemFont", "Segoe UI", sans-serif;
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  @apply font-sans;
 }
 
 /* Global smooth scrolling for anchor/link navigation */
