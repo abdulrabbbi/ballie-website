@@ -1,18 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ArrowRight } from "lucide-react";
-import { HERO_BG } from "../../images";
+import { firstOne, secondOne, thirdOne, fourthOne } from "../../images";
 import "./HeroSection.css";
 
 const CARD_INTERVAL = 3200; // ~5.2s between images
 
 // For now: random football action shots (replace with your own CDN later)
-const FOOTBALL_IMAGES = [
-  "https://images.pexels.com/photos/114296/pexels-photo-114296.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/274422/pexels-photo-274422.jpeg?auto=compress&cs=tinysrgb&w=1600",
-  "https://images.pexels.com/photos/3621104/pexels-photo-3621104.jpeg?auto=compress&cs=tinysrgb&w=1600",
-];
+const FOOTBALL_IMAGES = [firstOne, secondOne, thirdOne, fourthOne];
 
 const PrimaryCta = ({ children, className = "", ...props }) => (
   <a
@@ -216,9 +211,7 @@ const HeroSection = () => {
             data-anim-type="scale-in"
             data-anim-delay="100"
           >
-            <div
-              aria-hidden
-            >
+            <div aria-hidden>
               {/* Panel area */}
               <div className="relative aspect-[5/6] xl:aspect-[4/5] 2xl:aspect-[16/10] flex items-center justify-center">
                 {/* Background shards behind card */}
@@ -287,7 +280,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };

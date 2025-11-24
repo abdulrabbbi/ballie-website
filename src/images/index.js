@@ -9,6 +9,16 @@ export const APPLE_STORE_BADGE = "/icons/Apple logo.png";
 export const FOLLOW_LEFT_PLAYER = "/images/pngegg (18) 1.png";
 export const FOLLOW_RIGHT_PLAYER = "/images/pngegg (19) 1.png";
 
+
+// landing  page images
+export const firstOne = "/images/ladingPage/firstone.png";
+export const secondOne = "/images/ladingPage/secondone.png";
+export const thirdOne = "/images/ladingPage/thirdone.png";
+export const fourthOne = "/images/ladingPage/fourthone.png";
+
+
+
+
 export default {
   HERO_BG,
   BUSINESS_FRAME_221,
@@ -19,4 +29,8 @@ export default {
   APPLE_STORE_BADGE,
   FOLLOW_LEFT_PLAYER,
   FOLLOW_RIGHT_PLAYER,
+  firstOne,    //landing page images
+  secondOne,
+  thirdOne,
+  fourthOne,
 };

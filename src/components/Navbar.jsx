@@ -25,6 +25,11 @@ const Navbar = () => {
       name: t("nav.ballieCoins", "Ballie Coins"),
       path: "/ballie-coins",
     },
+     {
+      key: "liveScores",
+      name: t("nav.liveScores", "Live Scores"),
+      path: "/live-scores",
+    },
     {
       key: "blogsNews",
       name: t("nav.blogsNews", "Blogs & News"),
@@ -280,6 +285,27 @@ const Navbar = () => {
                   {/* Main sections: ONLY 4 cards now */}
                   <div className="space-y-3">
                     <NavLink
+                      to="/football-map"
+                      onClick={handleNavClick}
+                      className={({ isActive }) =>
+                        [
+                          "block rounded-2xl px-3 py-2.5 border transition",
+                          "bg-white/0 hover:bg-white/5",
+                          isActive
+                            ? "border-accent bg-accent/10 text-accent"
+                            : "border-white/10 text-gray-100",
+                        ].join(" ")
+                      }
+                    >
+                      <p className="text-sm font-semibold">
+                        {t("nav.footballMap", "FootballMaps")}
+                      </p>
+                      <p className="mt-0.5 text-xs text-gray-300">
+                        {t("nav.footballMapDesc", "Find where football lives")}
+                      </p>
+                    </NavLink>
+
+                    <NavLink
                       to="/ballie-coins"
                       onClick={handleNavClick}
                       className={({ isActive }) =>
@@ -287,7 +313,7 @@ const Navbar = () => {
                           "block rounded-2xl px-3 py-2.5 border transition",
                           "bg-white/0 hover:bg-white/5",
                           isActive
-                            ? "border-accent bg-accent/10 text-white"
+                            ? "border-accent bg-accent/10 text-accent"
                             : "border-white/10 text-gray-100",
                         ].join(" ")
                       }
@@ -302,37 +328,15 @@ const Navbar = () => {
                         )}
                       </p>
                     </NavLink>
-
                     <NavLink
-                      to="/football-map"
+                      to="/live-scores"
                       onClick={handleNavClick}
                       className={({ isActive }) =>
                         [
                           "block rounded-2xl px-3 py-2.5 border transition",
                           "bg-white/0 hover:bg-white/5",
                           isActive
-                            ? "border-accent bg-accent/10 text-white"
-                            : "border-white/10 text-gray-100",
-                        ].join(" ")
-                      }
-                    >
-                      <p className="text-sm font-semibold">
-                        {t("nav.footballMap", "FootballMaps")}
-                      </p>
-                      <p className="mt-0.5 text-xs text-gray-300">
-                        {t("nav.footballMapDesc", "Find where football lives")}
-                      </p>
-                    </NavLink>
-
-                    <NavLink
-                      to="/football-map"
-                      onClick={handleNavClick}
-                      className={({ isActive }) =>
-                        [
-                          "block rounded-2xl px-3 py-2.5 border transition",
-                          "bg-white/0 hover:bg-white/5",
-                          isActive
-                            ? "border-accent bg-accent/10 text-white"
+                            ? "border-accent bg-accent/10 text-accent"
                             : "border-white/10 text-gray-100",
                         ].join(" ")
                       }
@@ -353,7 +357,7 @@ const Navbar = () => {
                           "block rounded-2xl px-3 py-2.5 border transition",
                           "bg-white/0 hover:bg-white/5",
                           isActive
-                            ? "border-accent bg-accent/10 text-white"
+                            ? "border-accent bg-accent/10 text-accent"
                             : "border-white/10 text-gray-100",
                         ].join(" ")
                       }
