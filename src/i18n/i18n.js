@@ -6,19 +6,21 @@ import LanguageDetector from "i18next-browser-languagedetector";
 import enCommon from "../locales/en/common.json";
 import deCommon from "../locales/de/common.json";
 import esCommon from "../locales/es/common.json";
+import nlCommon from "../locales/nl/common.json";
 
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
     fallbackLng: "en",
-    supportedLngs: ["en", "de", "es"],
+    supportedLngs: ["en", "de", "es", "nl"],
     defaultNS: "common",
     ns: ["common"],
     resources: {
       en: { common: enCommon },
       de: { common: deCommon },
       es: { common: esCommon },
+      nl: { common: nlCommon },
     },
     detection: {
       // order: querystring -> localStorage -> navigator
@@ -44,4 +46,3 @@ if (typeof document !== "undefined") {
 }
 
 export default i18n;
-

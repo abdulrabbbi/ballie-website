@@ -7,6 +7,7 @@ const LANGUAGES = [
   { code: "en", label: "English", country: "GB" },
   { code: "de", label: "Deutsch", country: "DE" },
   { code: "es", label: "Espa\u00f1ol", country: "ES" },
+  { code: "nl", label: "Dutch", country: "NL" },
 ];
 
 export default function LanguageSwitcher({ inline = true, onSelected }) {
@@ -105,4 +106,3 @@ export default function LanguageSwitcher({ inline = true, onSelected }) {
     </div>
   );
 }
-

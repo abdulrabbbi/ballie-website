@@ -8,6 +8,7 @@
 
 body {
   @apply font-sans;
+  background-color: #050608;
 }
 
 /* Global smooth scrolling for anchor/link navigation */

@@ -51,6 +51,9 @@ const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(null);
   const { t } = useTranslation();
+  const paragraphs = t("modules.forYou.paragraphs", { returnObjects: true });
+  const title = t("modules.forYou.title");
+  const primaryCta = t("modules.forYou.cta");
 
   // Reveal-on-scroll (motion-safe)
   useEffect(() => {
@@ -109,14 +112,6 @@ const HeroSection = () => {
     >
       {/* Background (decorative) */}
       <div aria-hidden className="absolute inset-0">
-        {/* <img
-          src={HERO_BG}
-          alt=""
-          role="presentation"
-          className="h-full w-full object-cover object-center lg:object-right"
-          loading="eager"
-          fetchPriority="high"
-        /> */}
         <div className="absolute inset-0 bg-gradient-to-tr from-black via-black/60 to-black/10" />
       </div>
 
@@ -150,20 +145,22 @@ const HeroSection = () => {
               {/* Title */}
               <h1
                 id="hero-title"
-                className="text-balance  font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
+                className="text-lime-400  font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
               >
-                {t("hero.home.title")}
+                {title}
               </h1>
 
               {/* Supporting copy */}
-              <p className="mt-5 max-w-prose text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200">
-                {t("hero.home.desc")}
-              </p>
+              <div className="mt-5 max-w-prose text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200 space-y-3">
+                {paragraphs.map((text, idx) => (
+                  <p key={idx}>{text}</p>
+                ))}
+              </div>
 
               {/* CTAs */}
               <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
-                <PrimaryCta href="#download" aria-label={t("cta.downloadApp")}>
-                  <span>{t("cta.downloadApp")}</span>
+                <PrimaryCta href="#download" aria-label={primaryCta}>
+                  <span>{primaryCta}</span>
                   <ArrowRight size={18} aria-hidden />
                 </PrimaryCta>
 
@@ -285,3 +282,5 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
+

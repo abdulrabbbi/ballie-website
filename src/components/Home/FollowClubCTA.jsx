@@ -6,7 +6,7 @@ const FollowClubCTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative w-full bg-black py-10 sm:py-12 md:py-16">
+    <section className="relative w-full bg-transparent py-10 sm:py-12 md:py-16">
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Lime banner acts as the anchor for the side players */}
         <div className="relative mx-auto max-w-5xl rounded-[28px] bg-lime-400 px-5 py-7 sm:px-10 sm:py-9 md:px-14 md:py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.45)]">

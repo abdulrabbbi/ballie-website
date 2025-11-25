@@ -31,7 +31,7 @@ const UserBenefits = () => {
   return (
     <section className="relative mx-auto mt-16 w-full max-w-7xl overflow-hidden rounded-[28px] bg-black px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 text-white">
       {/* content */}
-      <div className="grid grid-cols-1 items-start gap-10 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-10">
         {/* LEFT: players with lime background shape behind */}
         <div className="relative flex items-end justify-center md:justify-start">
           {/* lime angled band ONLY behind the players */}
@@ -78,18 +78,33 @@ const UserBenefits = () => {
           />
         </div>
 
-        {/* RIGHT: heading, paragraph, cards (right-aligned on md+) */}
-        <div className="flex flex-col items-center md:items-end">
-          <div className="w-full md:max-w-[520px] lg:max-w-[560px] text-center md:text-right">
+        {/* RIGHT: heading, paragraph, cards */}
+        <div className="flex flex-col items-center md:items-start">
+          <div className="w-full md:max-w-[520px] lg:max-w-[560px] text-center md:text-left">
             <h2 className="mb-3 text-lime-400 font-extrabold leading-tight text-[clamp(1.6rem,3.2vw,2.6rem)]">
-              {t("userBenefits.heading")}
+              Ballie For You – Where football brings people together
             </h2>
-            <p className="mx-auto md:mx-0 text-gray-300 text-sm sm:text-[15px]">
-              {t("userBenefits.intro")}
-            </p>
+            <div className="mx-auto md:mx-0 space-y-3 text-gray-300 text-sm sm:text-[15px]">
+              <p>
+                Born from a passion for the beautiful game, Ballie Live is the
+                platform for everyone who doesn’t just want to watch football —
+                but truly experience it. Whether you’re at home, at the pub with
+                friends, or on the go, Ballie Live brings fans, clubs, and
+                venues together in one app. Find where your favourite club is
+                playing live, follow matches in real time, and discover places
+                where football comes alive.
+              </p>
+              <p>
+                And while you explore and interact, you can earn Ballie Coins
+                through daily logins, sharing on socials or inviting a friend.
+                Ballie Live connects people through their shared love for
+                football and brings stadium energy straight to your screen —
+                anytime, anywhere.
+              </p>
+            </div>
           </div>
 
-          <div className="mt-8 grid w-full grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6 md:max-w-[560px]">
+          <div className="mt-8 grid w-full md:max-w-[560px] grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6">
             {benefits.map((item, idx) => (
               <div
                 key={idx}
@@ -99,13 +114,13 @@ const UserBenefits = () => {
                   aria-hidden="true"
                   className="pointer-events-none absolute -top-10 -left-10 h-28 w-28 rounded-full bg-lime-400/10 blur-xl"
                 />
-                <div className="text-lime-400 mb-3 flex items-center justify-center md:justify-end">
+                <div className="text-lime-400 mb-3 flex items-center justify-center md:justify-start">
                   {item.icon}
                 </div>
-                <h3 className="text-lime-400 text-sm sm:text-base font-semibold mb-2 text-center md:text-right">
+                <h3 className="text-lime-400 text-sm sm:text-base font-semibold mb-2 text-center md:text-left">
                   {item.title}
                 </h3>
-                <p className="text-gray-400 text-xs sm:text-[13px] text-center md:text-right">
+                <p className="text-gray-400 text-xs sm:text-[13px] text-center md:text-left">
                   {item.desc}
                 </p>
               </div>
@@ -121,4 +136,3 @@ const UserBenefits = () => {
 };
 
 export default UserBenefits;
-

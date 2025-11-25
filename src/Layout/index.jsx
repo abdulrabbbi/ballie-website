@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 const Layout = () => {
   const { isSwitching } = useLanguage();
   return (
-    <div className="bg-black min-h-screen text-white flex flex-col">
+    <div className="bg-[#050608] min-h-screen text-white flex flex-col">
       {/* Fixed nav sits on top; add top padding to avoid jump */}
       <header className="h-0">
         <Navbar />

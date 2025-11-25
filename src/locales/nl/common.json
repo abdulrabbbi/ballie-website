@@ -1,0 +1,237 @@
+{
+  "nav": {
+    "__comment": "Navigation labels for the main top navbar (NL)",
+    "coins": "Ballie Coins",
+    "home": "Home",
+    "businessBenefits": "Voor bedrijven",
+    "footballMap": "Football Maps",
+    "blogsNews": "Blogs & nieuws",
+    "ballieCoins": "Ballie Coins",
+    "liveScores": "Live Scores",
+    "ballieCoinsDesc": "Earn. Personalise. Experience.",
+    "liveScoresDesc": "Stay in the game",
+    "blogsNewsDesc": "Stories, updates & highlights",
+    "footballMapDesc": "Find where football lives",
+    "download": "Download app",
+    "language": "Taal",
+    "ballieForYou": "Ballie voor jou",
+    "ballieForBusiness": "Ballie voor bedrijven",
+    "menu": "Menu",
+    "openMainMenu": "Hoofdmenu openen",
+    "closeMenu": "Menu sluiten",
+    "ballieMaps": "FootballMaps",
+    "aboutConcept": "Over het concept",
+    "blogNews": "Blog & nieuws"
+  },
+  "cta": {
+    "__comment": "Global call-to-action labels used across sections (NL)",
+    "downloadApp": "Download de Ballie Live-app",
+    "learnMore": "Meer info"
+  },
+  "modules": {
+    "__comment": "Text content for the main marketing modules/sections (NL)",
+    "forYou": {
+      "__comment": "Copy for 'Ballie For You' consumer module (NL)",
+      "title": "Waar voetbal mensen samenbrengt",
+      "paragraphs": [
+        "Ontstaan uit een passie voor het mooiste spel is Ballie Live het platform voor iedereen die niet alleen naar voetbal wil kijken, maar het echt wil beleven.",
+        "Of je nu thuis bent, in de kroeg met vrienden of onderweg, Ballie Live brengt fans, clubs en locaties samen in een app.",
+        "Vind waar je favoriete club live speelt, volg wedstrijden in real time en ontdek plekken waar voetbal echt tot leven komt.",
+        "Terwijl je ontdekt en meedoet, verdien je Ballie Coins met dagelijkse logins, delen op socials of het uitnodigen van een vriend.",
+        "Ballie Live verbindt mensen via hun gedeelde liefde voor voetbal en brengt de energie van het stadion rechtstreeks naar je scherm - altijd en overal."
+      ],
+      "cta": "Download de Ballie Live-app."
+    },
+    "business": {
+      "__comment": "Copy for 'Ballie For Business' venue-owner module (NL)",
+      "title": "Waar voetbal je zaak vult",
+      "paragraphs": [
+        "Waar de passie voor voetbal begint, brengt Ballie Live mensen samen - bij jou in de zaak.",
+        "Met een gratis Ballie Live Business-account wordt jouw bar, cafe of sportlocatie zichtbaar voor duizenden voetbalfans die op zoek zijn naar de perfecte plek om samen te juichen.",
+        "Laat zien welke wedstrijden je uitzendt - Ballie Live doet de rest.",
+        "Maak van elke wedstrijd een kans op een volle zaak."
+      ],
+      "cta": "Download de Ballie Live-app."
+    },
+    "coins": {
+      "__comment": "Copy for Ballie Coins benefits module (NL)",
+      "title": "Ballie Coins - Verdien. Personaliseer. Beleef.",
+      "paragraphs": [
+        "Met Ballie Coins haal je meer uit je voetbalbeleving.",
+        "Verdien Coins met dagelijkse logins, delen op socials of het uitnodigen van een vriend.",
+        "Gebruik je Ballie Coins om je Ballie Live-profiel te personaliseren, korting op voetbalgear te krijgen of extra's te kopen voor de aankomende Ballie Live Game.",
+        "Ballie Live wordt jouw speelveld - waar voetbal nooit stopt."
+      ],
+      "cta": "Download de Ballie Live-app."
+    },
+    "footballMaps": {
+      "__comment": "Copy for FootballMaps discovery module (NL)",
+      "title": "FootballMaps - Vind waar voetbal leeft",
+      "paragraphs": [
+        "Met FootballMaps van Ballie Live weet je altijd waar de wedstrijd wordt uitgezonden.",
+        "Ontdek bars, cafes en locaties bij jou in de buurt waar live voetbal te zien is - van lokale derby's tot internationale toppers.",
+        "Zie welke wedstrijden worden gespeeld, bekijk reviews en kies de perfecte plek om te kijken.",
+        "Ben je eigenaar van een zaak? Meld je gratis aan bij Ballie Live For Business en maak jouw locatie vindbaar voor fans."
+      ],
+      "cta": "Download de Ballie Live-app."
+    },
+    "liveScores": {
+      "__comment": "Copy for Live Scores module (NL)",
+      "title": "Live Scores - Blijf in de wedstrijd",
+      "paragraphs": [
+        "Met Live Scores van Ballie Live mis je geen moment.",
+        "Volg elke wedstrijd in real time en zie direct wie scoort of op voorsprong komt - allemaal in een helder overzicht.",
+        "Waar je ook bent, Ballie Live houdt je verbonden met de wedstrijd."
+      ],
+      "cta": "Download de Ballie Live-app."
+    },
+    "blogsNews": {
+      "__comment": "Copy for Blogs & News content module (NL)",
+      "title": "Blogs & Nieuws – Verhalen, updates en highlights",
+      "paragraphs": [
+        "Duik in verhalen die de voetbalwereld dichterbij brengen — van tactische analyses en clubnieuws tot behind-the-scenes over fans en venues.",
+        "Blijf bij met voorbeschouwingen, reacties en gecureerde content afgestemd op wat jij volgt in Ballie Live.",
+        "Of je nu vijf minuten hebt of een hele avond: Blogs & Nieuws houdt je bij tussen de aftrappen door."
+      ],
+      "cta": "Download de Ballie Live-app"
+    }
+  },
+  "hero": {
+    "__comment": "Hero sections for main pages (home, map, blogs, etc.) in Dutch",
+    "home": {
+      "__comment": "Hero content for the Ballie For You homepage (NL)",
+      "badge": "Ballie voor jou",
+      "title": "Waar voetbal mensen samenbrengt",
+      "desc": "",
+      "stats": {
+        "__comment": "Labels for stats in the home hero (NL)",
+        "venues": "Locaties en pubs",
+        "liveMatches": "Live wedstrijden gevolgd",
+        "clubs": "Clubs gevolgd",
+        "cities": "Steden"
+      }
+    },
+    "map": {
+      "__comment": "Hero content for the FootballMaps / map page (NL)",
+      "badge": "FootballMaps",
+      "title": "FootballMaps - Vind waar voetbal leeft",
+      "desc": ""
+    },
+    "blogs": {
+      "__comment": "Hero badge for the Blogs & News page (NL)",
+      "badge": "Blogs & Nieuws"
+    }
+  },
+  "map": {
+    "__comment": "Additional labels/descriptions used in FootballMaps cards (NL)",
+    "card": {
+      "blurb": "Vind cafes, bars en locaties met live voetbal. Zie wat er wordt gespeeld, bekijk reviews en kies de perfecte plek om te kijken met FootballMaps van Ballie Live.",
+      "matchScreening": "Wedstrijd"
+    }
+  },
+  "business": {
+    "__comment": "Long-form description and benefit list for Ballie For Business page (NL)",
+    "heading": "Ballie For Business - Waar voetbal je zaak vult",
+    "desc": "Waar de passie voor voetbal begint, brengt Ballie Live mensen samen - bij jou in de zaak. Maak je bar, cafe of sportlocatie zichtbaar voor voetbalfans die samen willen juichen.",
+    "benefits": [
+      {
+        "title": "Val op bij voetbalfans",
+        "desc": "Maak je locatie zichtbaar voor supporters die een plek zoeken om samen te kijken."
+      },
+      {
+        "title": "Publiceer je live wedstrijden",
+        "desc": "Laat snel zien welke wedstrijden je uitzendt zodat fans je vinden."
+      },
+      {
+        "title": "Maak van match avonden een succes",
+        "desc": "Breng de energie van het spel in je zaak en vergroot je bereik."
+      }
+    ]
+  },
+  "follow": {
+    "__comment": "Secondary promo copy for Ballie For Business follow-up section (NL)",
+    "heading1": "Ballie For Business",
+    "heading2": "Waar voetbal je zaak vult",
+    "desc": "Met een gratis Ballie Live Business-account wordt jouw locatie zichtbaar voor voetbalfans in de buurt. Laat zien welke wedstrijden je uitzendt en laat Ballie Live het publiek brengen."
+  },
+  "appPromo": {
+    "__comment": "App download promo block used on business pages (NL)",
+    "heading": "Download de Ballie Live-app",
+    "desc": "Beheer je Ballie Live Business-profiel, publiceer live wedstrijden en bereik fans wanneer het ertoe doet. Verbind je locatie met de energie van voetbal.",
+    "downloadNow": "Download de app nu"
+  },
+  "coins": {
+    "__comment": "Additional detailed copy for Ballie Coins feature section (NL)",
+    "title": "Ballie Coins - Verdien. Personaliseer. Beleef.",
+    "intro": "Met Ballie Live Coins haal je meer uit je voetbalbeleving. Verdien ze door actief te zijn in de app - check in bij wedstrijden, ontdek nieuwe locaties of deel je passie met andere fans.",
+    "closing": "Ballie Live wordt jouw speelveld - waar voetbal nooit stopt.",
+    "features": {
+      "personalise": {
+        "title": "Personaliseer je app",
+        "desc": "Ontgrendel exclusieve thema's van je favoriete club of speler."
+      },
+      "discounts": {
+        "title": "Bespaar op voetbalgear",
+        "desc": "Krijg korting op shirts, accessoires en meer."
+      },
+      "game": {
+        "title": "Power up de Ballie Game",
+        "desc": "Koop updates en extra's in de aankomende Ballie Live Game."
+      }
+    }
+  },
+  "userBenefits": {
+    "__comment": "Section explaining benefits of Ballie Live for regular users (NL)",
+    "heading": "Voetbal is meer dan een spel.",
+    "intro": "Het is een gevoel. En dat gevoel leeft bij Ballie Live.",
+    "items": [
+      {
+        "title": "Realtime wedstrijdupdates",
+        "desc": "Volg wedstrijden in real time en mis geen moment."
+      },
+      {
+        "title": "Verbind fans, clubs en locaties",
+        "desc": "Ballie Live brengt fans, clubs en locaties samen in een app."
+      },
+      {
+        "title": "Ontdek voetbalplekken",
+        "desc": "Vind kroegen en locaties waar voetbal leeft bij jou in de buurt."
+      },
+      {
+        "title": "Vind je club live",
+        "desc": "Zie snel waar je favoriete club live speelt."
+      }
+    ]
+  },
+  "footer": {
+    "__comment": "Footer navigation, advertise block, and legal texts (NL)",
+    "advertise": {
+      "title": "Adverteer bij ons",
+      "desc": "Bereik betrokken voetbalfans. Laat je e-mail achter en we nemen contact op over sponsoring en advertenties."
+    },
+    "form": {
+      "emailLabel": "Zakelijke e-mail",
+      "emailPlaceholder": "Vul je zakelijke e-mail in",
+      "submit": "Aan de slag"
+    },
+    "menu": {
+      "home": "HOME",
+      "advertise": "ADVERTEREN",
+      "cases": "CASES",
+      "careers": "CARRIERE",
+      "app": "APP"
+    },
+    "download": {
+      "title": "Download de app",
+      "on": "Download op de",
+      "appStore": "App Store",
+      "getItOn": "HAAL HET IN",
+      "googlePlay": "Google Play"
+    },
+    "rights": "(c) {{year}} BALLIE. Alle rechten voorbehouden",
+    "legal": {
+      "terms": "Algemene voorwaarden",
+      "blog": "Blog"
+    }
+  }
+}

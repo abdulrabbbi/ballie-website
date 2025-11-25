@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 
 const BusinessBenefitsSection = () => {
   const { t } = useTranslation();
+  const businessParagraphs = t("modules.business.paragraphs", { returnObjects: true });
+  const businessTitle = t("modules.business.title");
   const benefitsData = [
     {
       id: 1,
@@ -23,7 +25,7 @@ const BusinessBenefitsSection = () => {
     },
   ];
   return (
-    <section className="relative bg-black text-white px-4 py-14 sm:px-6 md:px-8 md:py-16">
+    <section className="relative bg-transparent text-white px-4 py-14 sm:px-6 md:px-8 md:py-16">
       {/* top subtle lime glow */}
       <div
         aria-hidden="true"
@@ -38,8 +40,15 @@ const BusinessBenefitsSection = () => {
       <div className="mx-auto max-w-7xl">
         {/* Heading + copy */}
         <div className="mb-10 text-center md:mb-12">
-          <h2 className="mb-2 text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold text-lime-400">{t("business.heading")}</h2>
-          <p className="mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-[15px]">{t("business.desc")}</p>
+          <h2 className="mb-2 text-[clamp(1.6rem,3vw,2.2rem)] font-extrabold text-lime-400">{businessTitle}</h2>
+          {businessParagraphs.map((text, idx) => (
+            <p
+              key={`${idx}-${text}`}
+              className={`${idx ? "mt-3" : ""} mx-auto max-w-3xl text-sm leading-relaxed text-gray-300 sm:text-[15px]`}
+            >
+              {text}
+            </p>
+          ))}
         </div>
 
         {/* Content */}

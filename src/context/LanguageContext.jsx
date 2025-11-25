@@ -4,7 +4,7 @@ import i18n from "../i18n/i18n";
 const LanguageContext = createContext(null);
 
 export function LanguageProvider({ children }) {
-  const allowed = new Set(["en", "de", "es"]);
+  const allowed = new Set(["en", "de", "es", "nl"]);
   const initial = (() => {
     const stored = localStorage.getItem("lang");
     if (stored && allowed.has(stored)) return stored;

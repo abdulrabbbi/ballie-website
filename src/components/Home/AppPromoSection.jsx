@@ -9,7 +9,7 @@ import {
 const AppPromoSection = () => {
   const { t } = useTranslation();
   return (
-    <section className="w-full bg-black py-10 sm:py-14 md:py-16">
+    <section className="w-full bg-transparent py-10 sm:py-14 md:py-16">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-8">
         {/* Card */}
         <div className="relative grid grid-cols-1 items-center gap-10 rounded-[28px] bg-[#3a3a3a] px-5 py-8 sm:px-8 sm:py-10 md:grid-cols-2 md:px-10 md:py-12 lg:gap-14 shadow-[0_18px_60px_rgba(0,0,0,0.45)] ring-1 ring-white/10">

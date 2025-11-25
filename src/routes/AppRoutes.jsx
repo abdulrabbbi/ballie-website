@@ -10,8 +10,8 @@ import BallieCoinsSection from "../components/BallieCoinsSection/BallieCoinsSect
 import Layout from "../Layout";
 const Home = lazy(() => import("../pages/Home"));
 const FootballMap = lazy(() => import("../pages/FootballMap"));
-const BlogsNews = lazy(() => import("../pages/BlogsNews"));
 const BusinessBenefits = lazy(() => import("../pages/BusinessBenefits"));
+const BlogsNews = lazy(() => import("../pages/BlogsNews"));
 const LiveScoresSection = lazy(() => import("../components/LiveScoresSection/LiveScoresSection"));
 const Terms = lazy(() => import("../pages/Terms"));
 

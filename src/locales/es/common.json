@@ -1,60 +1,146 @@
 {
   "nav": {
+    "__comment": "Navigation labels for the main top navbar (ES)",
+    "coins": "Ballie Coins",
     "home": "Inicio",
-    "businessBenefits": "Beneficios para Negocios",
-    "footballMap": "Mapa de Fútbol",
-    "blogsNews": "Blogs y Noticias",
-    "download": "Descargar App",
+    "businessBenefits": "Beneficios para negocios",
+    "footballMap": "FootballMaps",
+    "blogsNews": "Blogs y noticias",
+    "ballieCoins": "Ballie Coins",
+    "liveScores": "Marcadores en vivo",
+    "ballieCoinsDesc": "Gana. Personaliza. Disfruta.",
+    "liveScoresDesc": "Sigue en el juego",
+    "blogsNewsDesc": "Historias, novedades y destacados",
+    "footballMapDesc": "Encuentra donde vive el fútbol",
+    "download": "Descargar app",
     "language": "Idioma",
-    "ballieForYou": "Ballie para Ti",
-    "ballieForBusiness": "Ballie para Negocios",
+    "ballieForYou": "Ballie para ti",
+    "ballieForBusiness": "Ballie para negocios",
     "menu": "Menú",
     "openMainMenu": "Abrir menú principal",
     "closeMenu": "Cerrar menú",
-    "ballieMaps": "Mapas football",
+    "ballieMaps": "FootballMaps",
     "aboutConcept": "Sobre el concepto",
-    "blogNews": "Blog y Noticias",
-    "coins": "Ballie Coins"
+    "blogNews": "Blog y noticias"
   },
   "cta": {
-    "downloadApp": "Descargar la App de Ballie Live",
-    "learnMore": "Más información"
+    "__comment": "Global call-to-action labels used across sections",
+    "downloadApp": "Descarga la app de Ballie Live",
+    "learnMore": "Saber más"
+  },
+  "modules": {
+    "__comment": "Text content for the main marketing modules/sections",
+    "forYou": {
+      "__comment": "Copy for 'Ballie For You' consumer module",
+      "title": "Donde el fútbol une a las personas",
+      "paragraphs": [
+        "Nacido de la pasión por el fútbol, Ballie Live es la plataforma para quienes no solo quieren ver fútbol, sino vivirlo de verdad.",
+        "Ya sea en casa, en el bar con amigos o de viaje, Ballie Live reúne a aficionados, clubes y locales en una sola app.",
+        "Encuentra dónde juega en vivo tu club favorito, sigue los partidos en tiempo real y descubre lugares donde el fútbol cobra vida.",
+        "Y mientras exploras e interactúahas, ganas Ballie Coins con inicios de sesión diarios, compartiendo en redes o invitando a un amigo.",
+        "Ballie Live conecta a las personas mediante su amor compartido por el fútbol y lleva la energía del estadio directo a tu pantalla, en cualquier momento y lugar."
+      ],
+      "cta": "Descarga la app de Ballie Live."
+    },
+    "business": {
+      "__comment": "Copy for 'Ballie For Business' venue-owner module",
+      "title": "Donde el fútbol llena tu local",
+      "paragraphs": [
+        "Donde empieza la pasión por el fútbol, Ballie Live reúne a la gente — en tu local.",
+        "Con una cuenta gratuita de Ballie Live Business, tu bar, café o local deportivo se vuelve visible para miles de aficionados que buscan el sitio perfecto para animar juntos.",
+        "Muestra qué partidos transmites — Ballie Live se encarga del resto.",
+        "Convierte cada partido en una oportunidad de local lleno."
+      ],
+      "cta": "Descarga la app de Ballie Live."
+    },
+    "coins": {
+      "__comment": "Copy for Ballie Coins benefits module",
+      "title": "Ballie Coins – Gana. Personaliza. Disfruta.",
+      "paragraphs": [
+        "Con Ballie Coins, sacas más de tu experiencia futbolera.",
+        "Gana Coins con inicios de sesión diarios, compartiendo en redes o invitando a un amigo.",
+        "Usa tus Ballie Coins para personalizar tu perfil Ballie Live, conseguir descuentos en equipación o comprar extras para el próximo Ballie Live Game.",
+        "Ballie Live se convierte en tu campo de juego — donde el fútbol nunca se detiene."
+      ],
+      "cta": "Descarga la app de Ballie Live."
+    },
+    "footballMaps": {
+      "__comment": "Copy for FootballMaps discovery module",
+      "title": "FootballMaps – Encuentra donde vive el fútbol",
+      "paragraphs": [
+        "Con FootballMaps de Ballie Live, siempre sabes dónde está el partido.",
+        "Descubre bares, cafés y locales cerca de ti que muestran fútbol en vivo — desde derbis locales hasta duelos internacionales.",
+        "Mira qué partidos se juegan, revisa reseñas y elige el lugar perfecto para verlos.",
+        "¿Eres dueño de un local? Regístrate gratis en Ballie Live For Business y haz tu ubicación visible para los aficionados."
+      ],
+      "cta": "Descarga la app de Ballie Live."
+    },
+    "liveScores": {
+      "__comment": "Copy for Live Scores module",
+      "title": "Marcadores en vivo – Sigue en el juego",
+      "paragraphs": [
+        "Con Marcadores en vivo de Ballie Live no te pierdes nada.",
+        "Sigue cada partido en tiempo real y ve al instante quién marca o toma la ventaja — todo en una sola vista.",
+        "Estés donde estés, Ballie Live te mantiene conectado al juego."
+      ],
+      "cta": "Descarga la app de Ballie Live."
+    },
+    "blogsNews": {
+      "__comment": "Copy for Blogs & News content module",
+      "title": "Blogs y Noticias – Historias, actualizaciones y destacados",
+      "paragraphs": [
+        "Sumérgete en historias que acercan el mundo del fútbol: análisis tácticos, noticias de clubes y relatos entre bastidores sobre aficionados y locales.",
+        "Mantente al día con previas, reacciones y contenido curado, adaptado a lo que sigues en Ballie Live.",
+        "Tengas cinco minutos o una noche entera, Blogs y Noticias te mantiene al tanto entre cada pitido inicial."
+      ],
+      "cta": "Descarga la app de Ballie Live"
+    }
   },
   "hero": {
+    "__comment": "Hero sections for main pages (home, map, blogs, etc.)",
     "home": {
-      "badge": "Ballie para Ti",
+      "__comment": "Hero content for the Ballie For You homepage (ES)",
+      "badge": "Ballie para ti",
       "title": "Donde el fútbol une a las personas",
-      "desc": "Nacida de la pasión por el fútbol, Ballie Live es la plataforma para quienes no solo quieren ver el fútbol — sino vivirlo de verdad. Ya sea en casa, en el bar con amigos o de camino, Ballie Live reúne a aficionados, clubes y locales en una sola app. Encuentra fácilmente dónde juega en vivo tu club favorito, sigue los partidos en tiempo real y descubre lugares donde vive el fútbol. Ballie Live conecta a las personas por su amor al juego y lleva la energía del campo directamente a tu pantalla — en cualquier momento y lugar.",
+      "desc": "Nacido de la pasión por el fútbol, Ballie Live es la plataforma para quienes no solo quieren ver fútbol, sino vivirlo de verdad. Ya sea en casa, en el bar con amigos o de viaje, Ballie Live reúne a aficionados, clubes y locales en una sola app. Encuentra dónde juega en vivo tu club favorito, sigue los partidos en tiempo real y descubre lugares donde el fútbol cobra vida. Ballie Live conecta a las personas mediante su amor compartido por el fútbol y lleva la energía del estadio directo a tu pantalla, en cualquier momento y lugar.",
       "stats": {
-        "venues": "Locales y bares",
+        "__comment": "Labels for stats in the home hero",
+        "venues": "Locales y pubs",
         "liveMatches": "Partidos en vivo seguidos",
         "clubs": "Clubes seguidos",
-        "cities": "Ciudades cubiertas"
+        "cities": "Ciudades"
       }
     },
     "map": {
+      "__comment": "Hero content for the FootballMaps / map page (ES)",
       "badge": "FootballMaps",
       "title": "FootballMaps – Encuentra donde vive el fútbol",
-      "desc": "Con FootballMaps de Ballie Live, siempre sabrás dónde ver el partido. Descubre cafés, bares y locales deportivos cerca de ti que emiten fútbol en vivo — desde derbis locales hasta choques internacionales. Mira qué partidos están en juego, lee reseñas, comprueba el ambiente y elige el sitio donde quieres verlos. Ya sea animando con amigos en un pub lleno o mirando tranquilamente en la barra — FootballMaps te muestra el camino. ¿Eres dueño de un bar, café o local? Regístrate gratis en Ballie Live for Business y deja que los aficionados encuentren tu ubicación a través de FootballMaps. Convierte cada partido en un lleno total. Ballie Live conecta aficionados, lugares y fútbol — todo en una sola app."
+      "desc": "Con FootballMaps de Ballie Live, siempre sabes dónde está el partido. Descubre bares, cafés y locales deportivos cerca de ti que emiten fútbol en vivo. Ve qué partidos se juegan, revisa reseñas y elige el lugar perfecto para verlos. ¿Eres dueño de un local? Regístrate gratis y deja que los aficionados te encuentren."
+    },
+    "blogs": {
+      "__comment": "Hero badge for the Blogs & News page (ES)",
+      "badge": "Blogs y Noticias"
     }
   },
   "map": {
+    "__comment": "Additional labels/descriptions used in FootballMaps cards",
     "card": {
-      "blurb": "Encuentra cafés, bares y locales cercanos que emiten fútbol en vivo. Mira qué se está jugando, revisa reseñas y ambiente, y elige tu lugar perfecto con FootballMaps de Ballie Live.",
-      "matchScreening": "Emisión del partido"
+      "blurb": "Encuentra cafés, bares y locales con fútbol en vivo cerca de ti. Ve qué se está jugando, revisa reseñas y elige tu lugar perfecto con FootballMaps de Ballie Live.",
+      "matchScreening": "Transmisión del partido"
     }
   },
   "business": {
-    "heading": "Ballie para Negocios – Donde el fútbol llena tu local",
-    "desc": "Donde empieza la pasión por el fútbol, Ballie Live une a las personas — en tu local. Con una cuenta gratuita de Ballie Live Business, tu café, bar o local deportivo se vuelve visible para miles de aficionados que buscan el lugar perfecto para vivir el fútbol juntos. Muestra qué partidos emites — Ballie Live se encarga del resto. Cada noche de partido se convierte en un lleno total. Ballie Live conecta tu local con la emoción y energía del fútbol.",
+    "__comment": "Long-form description and benefit list for Ballie For Business page (ES)",
+    "heading": "Ballie For Business – Donde el fútbol llena tu local",
+    "desc": "Donde empieza la pasión por el fútbol, Ballie Live reúne a la gente — en tu local. Haz visible tu bar, café o local deportivo para aficionados que quieren animar juntos.",
     "benefits": [
       {
         "title": "Sé visible para los aficionados",
-        "desc": "Haz que tu local sea visible para miles de seguidores que buscan dónde ver el partido."
+        "desc": "Haz tu local visible para quienes buscan el lugar ideal para ver el partido."
       },
       {
         "title": "Publica tus partidos en vivo",
-        "desc": "Muestra fácilmente qué encuentros emites para que los fans te encuentren."
+        "desc": "Muestra rápido qué partidos transmites para que te encuentren."
       },
       {
         "title": "Llena cada noche de partido",
@@ -63,49 +149,65 @@
     ]
   },
   "follow": {
-    "heading1": "Ballie para Negocios",
+    "__comment": "Secondary promo copy for Ballie For Business follow-up section (ES)",
+    "heading1": "Ballie For Business",
     "heading2": "Donde el fútbol llena tu local",
-    "desc": "Con una cuenta gratuita de Ballie Live Business, tu café, bar o local deportivo se vuelve visible para los aficionados cercanos. Muestra los partidos que emites y deja que Ballie Live acerque al público."
+    "desc": "Con una cuenta gratis de Ballie Live Business, tu local se vuelve visible para los aficionados cercanos. Muestra los partidos que transmites y deja que Ballie Live atraiga al público."
   },
   "appPromo": {
-    "heading": "Descargar la App de Ballie Live",
-    "desc": "Gestiona tu perfil de negocio, publica partidos en vivo y llega a los aficionados cuando más importa. Conecta tu local con la emoción y energía del fútbol.",
-    "downloadNow": "Descargar app ahora"
+    "__comment": "App download promo block used on business pages (ES)",
+    "heading": "Descarga la app de Ballie Live",
+    "desc": "Gestiona tu perfil Ballie Live Business, publica partidos en vivo y llega a los aficionados cuando importa. Conecta tu local con la energía del fútbol.",
+    "downloadNow": "Descargar la app ahora"
   },
   "coins": {
+    "__comment": "Additional detailed copy for Ballie Coins feature section (ES)",
     "title": "Ballie Coins – Gana. Personaliza. Disfruta.",
-    "intro": "Con Ballie Live Coins, sacas más partido a tu experiencia futbolera. Gánalos al ser activo en la app — registrándote en partidos, explorando lugares o compartiendo tu pasión con otros fans.",
-    "closing": "Ballie Live se convierte en tu terreno de juego — donde el fútbol nunca se detiene.",
+    "intro": "Con Ballie Live Coins sacas más de tu experiencia. Gánalas con check-ins, explorando nuevos lugares o compartiendo tu pasión.",
+    "closing": "Ballie Live es tu campo de juego — donde el fútbol nunca se detiene.",
     "features": {
       "personalise": {
         "title": "Personaliza tu app",
         "desc": "Desbloquea temas exclusivos de tu club o jugador favorito."
       },
       "discounts": {
-        "title": "Ahorra en productos",
+        "title": "Ahorra en equipación",
         "desc": "Consigue descuentos en camisetas, accesorios y más."
       },
       "game": {
-        "title": "Impulsa el Ballie Game",
+        "title": "Impulsa Ballie Game",
         "desc": "Compra mejoras y extras para el próximo Ballie Live Game."
       }
     }
   },
   "userBenefits": {
+    "__comment": "Section explaining benefits of Ballie Live for regular users (ES)",
     "heading": "El fútbol es más que un juego.",
-    "intro": "Es una sensación. Y esa sensación vive en Ballie Live.",
+    "intro": "Es una sensación. Y vive en Ballie Live.",
     "items": [
-      { "title": "Actualizaciones en tiempo real", "desc": "Sigue los partidos en tiempo real y no te pierdas nada." },
-      { "title": "Conecta aficionados, clubes y locales", "desc": "Ballie Live une aficionados, clubes y locales en una sola app." },
-      { "title": "Descubre lugares de fútbol", "desc": "Encuentra bares y lugares donde vive el fútbol cerca de ti." },
-      { "title": "Encuentra a tu club en vivo", "desc": "Ve fácilmente dónde juega en vivo tu club favorito." }
+      {
+        "title": "Actualizaciones en tiempo real",
+        "desc": "Sigue partidos en tiempo real y no te pierdas nada."
+      },
+      {
+        "title": "Conecta fans, clubes y locales",
+        "desc": "Ballie Live reúne a fans, clubes y locales en una app."
+      },
+      {
+        "title": "Descubre lugares de fútbol",
+        "desc": "Encuentra bares y sitios donde vive el fútbol cerca de ti."
+      },
+      {
+        "title": "Encuentra tu club en vivo",
+        "desc": "Ve fácilmente dónde juega tu club favorito en vivo."
+      }
     ]
-  }
-  ,
+  },
   "footer": {
+    "__comment": "Footer navigation, advertise block, and legal texts (ES)",
     "advertise": {
       "title": "Anúnciate con nosotros",
-      "desc": "Llega a aficionados al fútbol. Déjanos tu correo y te contactaremos con opciones de patrocinio y publicidad."
+      "desc": "Llega a aficionados al fútbol. Deja tu correo y te contactamos con opciones de patrocinio y publicidad."
     },
     "form": {
       "emailLabel": "Correo de empresa",
@@ -113,22 +215,22 @@
       "submit": "Empezar"
     },
     "menu": {
-      "home": "INICIO",
-      "advertise": "ANUNCIARSE",
+      "home": "HOME",
+      "advertise": "ANUNCIATE",
       "cases": "CASOS",
       "careers": "EMPLEO",
       "app": "APP"
     },
     "download": {
       "title": "Descargar la app",
-      "on": "Descargar en",
+      "on": "Disponible en",
       "appStore": "App Store",
-      "getItOn": "DISPONIBLE EN",
+      "getItOn": "GET IT ON",
       "googlePlay": "Google Play"
     },
-    "rights": "© {{year}} BALLIE. Todos los derechos reservados",
+    "rights": "(c) {{year}} BALLIE. Todos los derechos reservados",
     "legal": {
-      "terms": "Términos y Condiciones",
+      "terms": "Términos y condiciones",
       "blog": "Blog"
     }
   }
