@@ -6,9 +6,9 @@ const BenefitItem = ({ id, title, description }) => {
   const isPrimary = id === 1;
 
   return (
-    <div className="relative">
+    <div className="relative w-full">
       {/* Row with marker + card */}
-      <div className="grid grid-cols-[48px,1fr] items-start gap-4">
+      <div className="grid grid-cols-[40px,minmax(0,1fr)] items-start gap-3 sm:gap-4 w-full">
         {/* Numbered marker */}
         <div className="relative flex items-start justify-center pt-1">
           <div

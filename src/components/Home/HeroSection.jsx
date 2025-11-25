@@ -4,9 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { firstOne, secondOne, thirdOne, fourthOne } from "../../images";
 import "./HeroSection.css";
 
-const CARD_INTERVAL = 3200; // ~5.2s between images
-
-// For now: random football action shots (replace with your own CDN later)
+const CARD_INTERVAL = 3200;
 const FOOTBALL_IMAGES = [firstOne, secondOne, thirdOne, fourthOne];
 
 const PrimaryCta = ({ children, className = "", ...props }) => (
@@ -55,7 +53,7 @@ const HeroSection = () => {
   const title = t("modules.forYou.title");
   const primaryCta = t("modules.forYou.cta");
 
-  // Reveal-on-scroll (motion-safe)
+  // Reveal-on-scroll
   useEffect(() => {
     const root = rootRef.current;
     if (!root) return;
@@ -83,7 +81,7 @@ const HeroSection = () => {
     return () => io.disconnect();
   }, []);
 
-  // Looping card animation (right side)
+  // Looping card animation
   useEffect(() => {
     const prefersReduced =
       typeof window !== "undefined" &&
@@ -102,8 +100,6 @@ const HeroSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const total = FOOTBALL_IMAGES.length;
-
   return (
     <section
       ref={rootRef}
@@ -116,10 +112,6 @@ const HeroSection = () => {
       </div>
 
       <div className="relative mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8 xl:max-w-[1280px] 2xl:max-w-[1440px]">
-        {/* Grid:
-            - 1 col on mobile
-            - 12-col on lg+
-        */}
         <div
           className={[
             "grid items-center gap-8 sm:gap-10",
@@ -134,7 +126,8 @@ const HeroSection = () => {
             data-animate
             data-anim-type="fade-up"
           >
-            <div className="pt-[calc(env(safe-area-inset-top))]">
+            {/* 🔥 text is centered on mobile/tablet, left on lg+ */}
+            <div className="pt-[calc(env(safe-area-inset-top))] text-center lg:text-left">
               {/* Badge */}
               <div className="mb-5 sm:mb-6">
                 <span className="inline-flex items-center rounded-full px-3 py-1 text-[11px] sm:text-xs font-semibold bg-accent/15 text-accent ring-1 ring-inset ring-accent/30">
@@ -145,20 +138,20 @@ const HeroSection = () => {
               {/* Title */}
               <h1
                 id="hero-title"
-                className="text-lime-400  font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
+                className="text-lime-400 font-extrabold tracking-tight text-4xl sm:text-5xl lg:text-6xl 2xl:text-[clamp(3rem,3.8vw,4.25rem)]"
               >
                 {title}
               </h1>
 
               {/* Supporting copy */}
-              <div className="mt-5 max-w-prose text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200 space-y-3">
+              <div className="mt-5 max-w-3xl mx-auto lg:mx-0 text-pretty text-[15px] sm:text-[17px] leading-relaxed text-gray-200 space-y-3">
                 {paragraphs.map((text, idx) => (
                   <p key={idx}>{text}</p>
                 ))}
               </div>
 
               {/* CTAs */}
-              <div className="mt-7 sm:mt-8 flex flex-wrap items-center gap-3">
+              <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <PrimaryCta href="#download" aria-label={primaryCta}>
                   <span>{primaryCta}</span>
                   <ArrowRight size={18} aria-hidden />
@@ -174,7 +167,7 @@ const HeroSection = () => {
 
               {/* Stats */}
               <dl
-                className="mt-9 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
+                className="mt-9 sm:mt-10 max-w-3xl mx-auto lg:mx-0 grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4"
                 data-animate
                 data-anim-type="fade-in"
                 data-anim-delay="100"
@@ -201,7 +194,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right: animated card panel (like your screenshot) */}
+          {/* Right: animated card panel */}
           <div
             className="hero-right hidden lg:col-span-5 lg:block xl:col-span-6 2xl:col-span-6"
             data-animate
@@ -209,9 +202,7 @@ const HeroSection = () => {
             data-anim-delay="100"
           >
             <div aria-hidden>
-              {/* Panel area */}
               <div className="relative aspect-[5/6] xl:aspect-[4/5] 2xl:aspect-[16/10] flex items-center justify-center">
-                {/* Background shards behind card */}
                 <div className="pointer-events-none absolute inset-0">
                   <div className="hero-panel-shard hero-panel-shard--tl" />
                   <div className="hero-panel-shard hero-panel-shard--tr" />
@@ -219,7 +210,6 @@ const HeroSection = () => {
                   <div className="hero-panel-shard hero-panel-shard--br" />
                 </div>
 
-                {/* Card stack */}
                 <div className="relative w-[82%] max-w-md aspect-[3/4]">
                   {FOOTBALL_IMAGES.map((src, index) => {
                     const isActive = index === activeIndex;
@@ -247,7 +237,6 @@ const HeroSection = () => {
                           />
                           <div className="hero-card-overlay" />
 
-                          {/* HUD at bottom (LIVE + score) */}
                           <div className="hero-card-meta">
                             <div className="hero-card-pill">
                               <span className="hero-card-pill-dot" />
@@ -282,5 +271,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
-

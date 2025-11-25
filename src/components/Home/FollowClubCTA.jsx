@@ -6,19 +6,19 @@ const FollowClubCTA = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative w-full bg-transparent py-10 sm:py-12 md:py-16">
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 md:px-8">
+    <section className="relative w-full bg-transparent py-8 sm:py-10 md:py-16">
+      <div className="relative mx-auto max-w-7xl px-3 sm:px-6 md:px-8">
         {/* Lime banner acts as the anchor for the side players */}
-        <div className="relative mx-auto max-w-5xl rounded-[28px] bg-lime-400 px-5 py-7 sm:px-10 sm:py-9 md:px-14 md:py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
-          {/* Players hugging the card edges, perfectly aligned */}
+        <div className="relative mx-auto w-full max-w-5xl rounded-[28px] bg-lime-400 px-4 py-6 sm:px-10 sm:py-9 md:px-14 md:py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+          {/* Players hugging the card edges, responsive sizes */}
           <img
             src={FOLLOW_LEFT_PLAYER}
             alt="Player left"
             className="
               pointer-events-none select-none
               absolute left-0 -translate-x-1/2
-              bottom-[-18px] sm:bottom-[-22px] md:bottom-[-26px]
-              h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]
+              bottom-[-12px] sm:bottom-[-18px] md:bottom-[-22px]
+              h-[140px] xs:h-[160px] sm:h-[200px] md:h-[240px] lg:h-[280px]
               object-contain
               drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]
               z-10
@@ -33,8 +33,8 @@ const FollowClubCTA = () => {
             className="
               pointer-events-none select-none
               absolute right-0 translate-x-1/2
-              bottom-[-18px] sm:bottom-[-22px] md:bottom-[-26px]
-              h-[180px] sm:h-[220px] md:h-[260px] lg:h-[300px]
+              bottom-[-12px] sm:bottom-[-18px] md:bottom-[-22px]
+              h-[140px] xs:h-[160px] sm:h-[200px] md:h-[240px] lg:h-[280px]
               object-contain
               drop-shadow-[0_25px_60px_rgba(0,0,0,0.8)]
               z-10
@@ -47,7 +47,7 @@ const FollowClubCTA = () => {
           {/* watermark circle (subtle, like the mock) */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-2 top-1/2 h-[160%] w-[55%] -translate-y-1/2 rounded-full opacity-[0.18]"
+            className="pointer-events-none absolute left-2 top-1/2 h-[150%] w-[55%] -translate-y-1/2 rounded-full opacity-[0.18]"
             style={{
               background:
                 "radial-gradient(closest-side, rgba(0,0,0,0.25), rgba(0,0,0,0) 70%)",
@@ -59,10 +59,10 @@ const FollowClubCTA = () => {
             }}
           />
 
-          <h3 className="relative z-20 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold">
+          <h3 className="relative z-20 text-black/90 text-[clamp(1.05rem,2.2vw,1.6rem)] font-semibold">
             {t("follow.heading1")}
           </h3>
-          <h3 className="relative z-20 text-black/90 text-[clamp(1.1rem,2.4vw,1.6rem)] font-semibold -mt-1">
+          <h3 className="relative z-20 text-black/90 text-[clamp(1.05rem,2.2vw,1.6rem)] font-semibold -mt-1">
             {t("follow.heading2")}
           </h3>
 
@@ -76,7 +76,7 @@ const FollowClubCTA = () => {
         </div>
 
         {/* Spacer so players don't overlap next section on small screens */}
-        <div className="h-24 sm:h-28 md:h-32" />
+        <div className="h-16 sm:h-20 md:h-28 lg:h-32" />
       </div>
     </section>
   );
